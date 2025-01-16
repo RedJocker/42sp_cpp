@@ -6,46 +6,19 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2024/12/13 18:24:12 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/16 03:27:18 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/16 18:41:00 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "Contact.hpp"
-#include <stdexcept>
-#include <iomanip>
-
-Contact::Contact(std::string first_name,
-				 std::string last_name,
-				 std::string nickname,
-				 std::string phone_number,
-				 std::string darkest_secret)
-	: _first_name(first_name),
-	  _last_name(last_name),
-	  _nickname(nickname),
-	  _phone_number(phone_number),
-	  _darkest_secret(darkest_secret){
-
-	if (this->is_empty())
-		throw std::domain_error("A saved contact can't have empty fields");
-}
-
-Contact::Contact() {}
-
-bool Contact::is_empty() const
-{
-	return this->_first_name.empty()
-	|| this->_last_name.empty()
-	|| this->_nickname.empty()
-	|| this->_darkest_secret.empty();
-}
 
 std::ostream& operator<<(std::ostream& os, Contact &contact) {
 	os
-	   << std::setw(10) << contact.firstName() << "|"
-	   << std::setw(10) << contact.lastName() << "|"
-	   << std::setw(10) << contact.nickname() << "|"
-	   << std::setw(10) << contact.phoneNumber() << "|"
-	   << std::setw(10) << contact.darkestSecret();
+		<< "First name: " << contact.firstNameRef() << std::endl
+		<< "Last name: " << contact.lastNameRef() << std::endl
+		<< "Nickname: " << contact.nicknameRef() << std::endl
+		<< "Phone number: " << contact.phoneNumberRef() << std::endl
+		<< "Darkest secret: " << contact.darkestSecretRef() << std::endl;
 	return os;
 }
 

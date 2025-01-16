@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2024/12/13 18:23:24 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/16 03:29:18 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/16 05:09:36 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -29,14 +29,6 @@ class Contact {
 	static std::string normalized(const std::string &str);
 
 public:
-
-	Contact(std::string first_name,
-			std::string last_name,
-			std::string nickname,
-			std::string phone_number,
-			std::string darkest_secret);
-	Contact();
-	bool is_empty() const;
 
 	std::string firstName() const;
 	std::string lastName() const;

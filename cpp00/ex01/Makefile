@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/01/16 01:36:23 by maurodri         ###   ########.fr        #
+#    Updated: 2025/01/16 18:35:50 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,6 +14,7 @@ MANDATORY_DIR := ./
 
 FILES := PhoneBook.cpp \
 	Contact.cpp \
+	Prompter.cpp \
 	main.cpp
 
 
@@ -34,6 +35,7 @@ DEP_FILES := $(patsubst %.o, %.d, $(OBJS))
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	etags $$(find . -name '*.[ch]pp')
 	$(CC) $(CFLAGS) $^ $(INCLUDES) -o $@
 
 $(OBJS): $(OBJ_DIR)%.o : %.cpp | $(OBJ_DIR)

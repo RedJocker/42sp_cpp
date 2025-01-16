@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2024/12/13 18:21:39 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/16 01:27:03 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/16 18:23:39 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -16,9 +16,10 @@
 # include "Contact.hpp"
 
 class PhoneBook {
-	Contact contacts[8];
-	int		next_index;
-	bool	is_init;
+	static const int	MAX_CONTACTS = 8;
+	Contact				contacts[MAX_CONTACTS];
+	int					next_index;
+	bool				is_init;
 public:
 	/*
 	* If the user enters this command,
@@ -47,7 +48,9 @@ public:
 	 * If the index is out of range or wrong, define a relevant behavior.
 	 * Otherwise, display the contact information, one field per line.
 	*/
-	Contact search(int id);
+	Contact *search(int id);
+
+	void displayContacts();
 
 	PhoneBook();
 };
