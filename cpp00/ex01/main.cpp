@@ -44,12 +44,13 @@ int main(void)
 			phonebook.displayContacts();
 			if (!Prompter::prompt_id(id))
 				continue;
-			Contact *contact = phonebook.search(id);
+			const Contact *contact = phonebook.search(id);
 			std::cout << "Id: " << id << std::endl;
 			if (!contact)
 				std::cout << "Contact not found" << std::endl;
 			else
-				std::cout << *contact << std::endl;
+				std::cout << *contact;
+			std::cout << std::endl;
 		}
 	}
 	std::cout << std::endl;

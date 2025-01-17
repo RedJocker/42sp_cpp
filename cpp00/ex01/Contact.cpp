@@ -12,13 +12,14 @@
 
 #include "Contact.hpp"
 
-std::ostream& operator<<(std::ostream& os, Contact &contact) {
+std::ostream& operator<<(std::ostream& os, const Contact &contact) {
+	Contact &c = const_cast<Contact&>(contact);
 	os
-		<< "First name: " << contact.firstNameRef() << std::endl
-		<< "Last name: " << contact.lastNameRef() << std::endl
-		<< "Nickname: " << contact.nicknameRef() << std::endl
-		<< "Phone number: " << contact.phoneNumberRef() << std::endl
-		<< "Darkest secret: " << contact.darkestSecretRef() << std::endl;
+		<< "First name: " << c.firstNameRef() << std::endl
+		<< "Last name: " << c.lastNameRef() << std::endl
+		<< "Nickname: " << c.nicknameRef() << std::endl
+		<< "Phone number: " << c.phoneNumberRef() << std::endl
+		<< "Darkest secret: " << c.darkestSecretRef() << std::endl;
 	return os;
 }
 

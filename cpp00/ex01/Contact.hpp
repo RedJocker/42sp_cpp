@@ -43,6 +43,6 @@ public:
 	std::string &darkestSecretRef();
 };
 
-std::ostream &operator<<(std::ostream &os, Contact &contact);
+std::ostream &operator<<(std::ostream &os, const Contact &contact);
 
 #endif

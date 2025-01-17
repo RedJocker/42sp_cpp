@@ -21,6 +21,7 @@ class PhoneBook {
 	int					next_index;
 	bool				is_init;
 public:
+
 	/*
 	* If the user enters this command,
 	* they are prompted to input the information
@@ -48,10 +49,8 @@ public:
 	 * If the index is out of range or wrong, define a relevant behavior.
 	 * Otherwise, display the contact information, one field per line.
 	*/
-	Contact *search(int id);
-
-	void displayContacts();
-
+	const Contact *search(int id) const;
+	void displayContacts() const;
 	bool isEmpty() const; 
 	PhoneBook();
 };
