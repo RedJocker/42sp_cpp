@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/17 19:48:58 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/17 20:10:15 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/17 20:17:11 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -15,5 +15,5 @@
 Zombie* newZombie( std::string name )
 {
 	
-	return 0;
+	return new Zombie(name);
 }

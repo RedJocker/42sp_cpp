@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/17 19:46:04 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/17 20:10:14 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/17 20:14:40 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -17,15 +17,16 @@
 #endif
 
 // First, implement a Zombie class. It has a string private attribute name.
-// Add a member function void announce( void ); to the Zombie class. Zombies
-// announce themselves as follows:
-// <name>: BraiiiiiiinnnzzzZ...
-// Don’t print the angle brackets (< and >). For a zombie named Foo, the message
-// would be:
-// Foo: BraiiiiiiinnnzzzZ...
+
 class Zombie {
 	std::string name;
 public:
+	// Add a member function void announce( void ); to the Zombie class. Zombies
+	// announce themselves as follows:
+	// <name>: BraiiiiiiinnnzzzZ...
+	// Don’t print the angle brackets (< and >). For a zombie named Foo, the message
+	// would be:
+	// Foo: BraiiiiiiinnnzzzZ...
 	void announce(void);
 	Zombie(std::string name);
 	~Zombie();
