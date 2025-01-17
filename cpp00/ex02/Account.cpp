@@ -6,11 +6,12 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/17 16:22:54 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/17 16:47:52 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/17 17:02:04 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "Account.hpp"
+#include <iostream>
 
 int Account::getNbAccounts()
 {
@@ -34,6 +35,7 @@ int Account::getNbWithdrawals(void)
 
 void Account::displayAccountsInfos(void)
 {
+	std::cout << "Hello" << std::endl;
 	return;
 }
 
