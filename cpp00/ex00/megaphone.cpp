@@ -38,7 +38,8 @@ int main(int argc, char *argv[])
   while (++i < argc)
   {
 	str = argv[i];
-	std::cout << str_transform(str, std::toupper);;
+	std::cout << str_transform(str, std::toupper);
   }
+  std::cout << std::endl;
   return (0);
 }
