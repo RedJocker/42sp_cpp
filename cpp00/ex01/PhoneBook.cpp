@@ -63,3 +63,8 @@ void PhoneBook::displayContacts()
 	}
 	std::cout << std::endl;
 }
+
+bool PhoneBook::isEmpty() const
+{
+	return next_index == 0 && !is_init;
+} 

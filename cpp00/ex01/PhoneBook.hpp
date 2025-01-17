@@ -52,6 +52,7 @@ public:
 
 	void displayContacts();
 
+	bool isEmpty() const; 
 	PhoneBook();
 };
 

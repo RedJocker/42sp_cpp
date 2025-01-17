@@ -35,6 +35,11 @@ int main(void)
 		}
 		else if (command == "SEARCH")
 		{
+			if (phonebook.isEmpty())
+			{
+				std::cout << "Phonebook is empty" << std::endl << std::endl;
+				continue;
+			}
 			int id;
 			phonebook.displayContacts();
 			if (!Prompter::prompt_id(id))
