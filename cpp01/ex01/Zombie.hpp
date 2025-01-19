@@ -1,26 +1,27 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   main.cpp                                           :+:      :+:    :+:   //
+//   Zombie.hpp                                         :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2025/01/17 19:48:54 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/19 17:59:31 by maurodri         ###   ########.fr       //
+//   Created: 2025/01/17 19:46:04 by maurodri          #+#    #+#             //
+//   Updated: 2025/01/19 17:53:50 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main(void)
-{
-	Zombie yes("Mr. Yes");
-	yes.announce();
+#include <string>
+#endif
 
-	Zombie *nope = newZombie("Nope Guy");
-	nope->announce();
-	delete nope;
+class Zombie {
+	std::string name;
+public:
+	void announce(void);
+	Zombie(std::string name);
+	~Zombie();
+};
 
-	randomChump("Maybe Fellow");
-	return (0);
-}
+Zombie	*zombieHorde(int horde_size, std::string name);

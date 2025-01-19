@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/17 19:48:54 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/19 17:59:31 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/19 17:49:04 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -17,10 +17,13 @@ int main(void)
 	Zombie yes("Mr. Yes");
 	yes.announce();
 
-	Zombie *nope = newZombie("Nope Guy");
-	nope->announce();
-	delete nope;
+	Zombie *horde = zombieHorde(5, "zombies");
 
-	randomChump("Maybe Fellow");
+	for (int i = 0; i < 5; i++)
+		horde[i].announce();
+
+	for (int i = 0; i < 5; i++)
+		horde[i].~Zombie();
+	operator delete[](horde);
 	return (0);
 }

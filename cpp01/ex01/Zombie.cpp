@@ -1,26 +1,31 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   main.cpp                                           :+:      :+:    :+:   //
+//   Zombie.cpp                                         :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2025/01/17 19:48:54 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/19 17:59:31 by maurodri         ###   ########.fr       //
+//   Created: 2025/01/17 19:45:51 by maurodri          #+#    #+#             //
+//   Updated: 2025/01/17 20:15:15 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "Zombie.hpp"
+#include <string>
+#include <iostream>
 
-int main(void)
+void Zombie::announce(void)
 {
-	Zombie yes("Mr. Yes");
-	yes.announce();
+	std::cout << "<" + name + ">: BraiiiiiiinnnzzzZ..." << std::endl;
+	return ;
+}
 
-	Zombie *nope = newZombie("Nope Guy");
-	nope->announce();
-	delete nope;
+Zombie::Zombie(std::string name) : name(name)
+{
 
-	randomChump("Maybe Fellow");
-	return (0);
+}
+
+Zombie::~Zombie()
+{
+	std::cout << "Destroy " << this->name << std::endl;
 }

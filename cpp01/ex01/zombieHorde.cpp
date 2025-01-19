@@ -1,26 +1,23 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   main.cpp                                           :+:      :+:    :+:   //
+//   zombieHorde.cpp                                    :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2025/01/17 19:48:54 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/19 17:59:31 by maurodri         ###   ########.fr       //
+//   Created: 2025/01/19 17:27:14 by maurodri          #+#    #+#             //
+//   Updated: 2025/01/19 17:58:23 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "Zombie.hpp"
 
-int main(void)
+Zombie	*zombieHorde(int horde_size, std::string name)
 {
-	Zombie yes("Mr. Yes");
-	yes.announce();
+	Zombie *horde =
+		static_cast<Zombie *>(operator new[](horde_size * sizeof(Zombie)));
 
-	Zombie *nope = newZombie("Nope Guy");
-	nope->announce();
-	delete nope;
-
-	randomChump("Maybe Fellow");
-	return (0);
+	for (int i = 0; i < horde_size; i++)
+		new (horde + i) Zombie(name);
+	return horde;
 }
