@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/16 17:08:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/16 18:37:43 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/19 17:21:25 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -79,10 +79,7 @@ bool Prompter::prompt_id(int &out_id)
 		return false;;
 	std::cout << std::endl;
 	if (id_str.length() != 1 || id_str[0] < '0' || id_str[0] >= '8')
-	{
-		std::cout << "Invalid id" <<  std::endl;
 		return false ;
-	}
 	out_id = atoi(id_str.c_str());
 	return  true;
 }

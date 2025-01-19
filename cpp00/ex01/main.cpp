@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2024/12/12 17:38:34 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/16 18:48:16 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/19 17:21:24 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -20,8 +20,9 @@ int main(void)
 
 	while (!std::cin.eof())
 	{
-		std::string command;
+		std::cout << std::endl;
 		std::cout << "Input command (ADD, SEARCH, EXIT)" << std::endl;
+		std::string command;
 		std::getline(std::cin, command);
 		if (std::cin.eof() || command == "EXIT")
 			break ;
@@ -37,20 +38,22 @@ int main(void)
 		{
 			if (phonebook.isEmpty())
 			{
-				std::cout << "Phonebook is empty" << std::endl << std::endl;
+				std::cout << "Phonebook is empty" << std::endl;
 				continue;
 			}
 			int id;
 			phonebook.displayContacts();
 			if (!Prompter::prompt_id(id))
+			{
+				std::cout << "Invalid id" <<  std::endl;
 				continue;
+			}
 			const Contact *contact = phonebook.search(id);
 			std::cout << "Id: " << id << std::endl;
 			if (!contact)
 				std::cout << "Contact not found" << std::endl;
 			else
 				std::cout << *contact;
-			std::cout << std::endl;
 		}
 	}
 	std::cout << std::endl;
