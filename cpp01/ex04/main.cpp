@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/17 19:48:54 by maurodri          #+#    #+#             //
-/*   Updated: 2025/01/23 21:59:25 by maurodri         ###   ########.fr       */
+//   Updated: 2025/01/25 15:12:04 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -24,9 +24,36 @@
 // Of course, handle unexpected inputs and errors. You have to create and turn in your
 // own tests to ensure your program works as expected.
 
-void sed()
+void sed(const std::string &target,
+	const std::string &replacement,
+	std::ifstream &file_in,
+	std::ofstream &file_out)
 {
-	
+	std::string input_line;
+	while (std::getline(file_in, input_line))
+	{
+		std::string::size_type cur = 0;
+		while (1)
+		{
+			std::string::size_type next = input_line.find(target, cur);
+			std::string out;
+			if (next == std::string::npos) {
+				out = input_line.substr(cur);
+				file_out << out;
+				break;
+			}
+			else
+			{
+				out = input_line.substr(cur, next - cur);
+				file_out << out
+						 << replacement;
+			}
+			cur = next + target.length();
+		}
+		if (file_in.eof())
+			break;
+		file_out << std::endl;
+	}
 }
 
 int main(int argc, char *argv[])
@@ -56,31 +83,7 @@ int main(int argc, char *argv[])
 		std::cout << "could not open file with filename " << out_filename << std::endl;
 		return (2);
 	}
-	std::string input_line;
-	while (std::getline(file_in, input_line))
-	{
-		std::string::size_type cur = 0;
-		while (1)
-		{
-			std::string::size_type next = input_line.find(target, cur);
-			std::string out;
-			if (next == std::string::npos) {
-				out = input_line.substr(cur);
-				file_out << out;
-				break;
-			}
-			else
-			{
-				out = input_line.substr(cur, next - cur);
-				file_out << out
-						 << replacement;
-			}
-			cur = next + target.length();
-		}
-		if (file_in.eof())
-			break;
-		file_out << std::endl;
-	}
+	sed(target, replacement, file_in, file_out);
 	file_in.close();
 	file_out.close();
 	return (0);
