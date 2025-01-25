@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/17 16:22:54 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/17 19:15:27 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/25 15:05:22 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -27,7 +27,6 @@ void	Account::_displayTimestamp(void)
 	std::time_t result = std::time(nullptr);
 	std::strftime(time_str, SIZE, "[%Y%m%d_%H%M%S]", std::localtime(&result));
 	std::cout << time_str;
-	//std::cout << "[19920104_091532]";
 }
 
 int Account::getNbAccounts()

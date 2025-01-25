@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/21 21:00:14 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/21 22:12:25 by maurodri         ###   ########.fr       //
+//   Updated: 2025/01/25 15:05:56 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -15,10 +15,7 @@
 
 HumanB::HumanB(std::string name)
     : weapon(NULL),
-	  name(name)
-{
-	//std::cout << "HumanB(" << name << ")"<< std::endl;
-}
+	  name(name) {}
 
 void HumanB::attack(void) const
 {
