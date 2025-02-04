@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:10:49 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 04:56:25 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/04 14:29:59 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -54,6 +54,13 @@ public:
 	Fixed operator-(const Fixed& other) const;
 	Fixed operator*(const Fixed& other) const;
 	Fixed operator/(const Fixed& other) const;
+
+	bool operator>(const Fixed& other) const;
+	bool operator>=(const Fixed& other) const;
+	bool operator<(const Fixed& other) const;
+	bool operator<=(const Fixed& other) const;
+	bool operator==(const Fixed& other) const;
+	bool operator!=(const Fixed& other) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);

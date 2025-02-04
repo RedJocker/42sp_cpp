@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:15:41 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 05:12:53 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/04 14:30:40 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -134,4 +134,34 @@ Fixed Fixed::operator/(const Fixed& other) const
 		/ static_cast<long long>(other.getRawBits());
 	result.setRawBits(static_cast<int>(res << fractional_bits));
 	return result;
+}
+
+bool Fixed::operator>(const Fixed& other) const
+{
+	return (this->raw - other.raw) > 0;
+}
+
+bool Fixed::operator>=(const Fixed& other) const
+{
+	return (this->raw - other.raw) >= 0;
+}
+
+bool Fixed::operator<(const Fixed& other) const
+{
+	return (this->raw - other.raw) < 0;
+}
+
+bool Fixed::operator<=(const Fixed& other) const
+{
+	return (this->raw - other.raw) <= 0;
+}
+
+bool Fixed::operator==(const Fixed& other) const
+{
+	return this->raw == other.raw;
+}
+
+bool Fixed::operator!=(const Fixed& other) const
+{
+	return this->raw != other.raw;
 }
