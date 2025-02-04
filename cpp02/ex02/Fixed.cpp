@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:15:41 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 14:30:40 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/04 19:03:49 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -95,7 +95,7 @@ int Fixed::toInt(void) const
 	int pos_raw = is_negative ? ~(this->raw - 1) : this->raw;
 	int int_part = (pos_raw & uint_mask) >> fractional_bits;
 	return is_negative ? -int_part : int_part;
-	
+
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
@@ -164,4 +164,30 @@ bool Fixed::operator==(const Fixed& other) const
 bool Fixed::operator!=(const Fixed& other) const
 {
 	return this->raw != other.raw;
+}
+
+Fixed &Fixed::operator++(void)
+{
+	this->raw++;
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed ret(*this);
+	this->raw++;
+	return ret;
+}
+
+Fixed &Fixed::operator--(void)
+{
+	this->raw--;
+	return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed ret(*this);
+	this->raw++;
+	return ret;
 }

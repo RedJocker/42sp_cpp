@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:10:49 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 14:29:59 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/04 18:46:39 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -16,20 +16,21 @@
 
 # include <ostream>
 
-// Add the following public constructors and public member functions to your class:
-// • A constructor that takes a constant integer as a parameter.
-// It converts it to the corresponding fixed-point value. The fractional bits value is
-// initialized to 8 like in exercise 00.
-// • A constructor that takes a constant floating-point number as a parameter.
-// It converts it to the corresponding fixed-point value. The fractional bits value is
-// initialized to 8 like in exercise 00.
-// • A member function float toFloat( void ) const;
-// that converts the fixed-point value to a floating-point value.
-// • A member function int toInt( void ) const;
-// that converts the fixed-point value to an integer value.
-// And add the following function to the Fixed class files:
-// • An overload of the insertion («) operator that inserts a floating-point representation
-// of the fixed-point number into the output stream object passed as parameter.
+// Add public member functions to your class to overload the following operators:
+// • The 6 comparison operators: >, <, >=, <=, == and !=.
+// • The 4 arithmetic operators: +, -, *, and /.
+// • The 4 increment/decrement (pre-increment and post-increment, pre-decrement and
+// post-decrement) operators, that will increase or decrease the fixed-point value from
+// the smallest representable ϵ such as 1 + ϵ > 1.
+// Add these four public overloaded member functions to your class:
+// • A static member function min that takes as parameters two references on fixed-point
+// numbers, and returns a reference to the smallest one.
+// • A static member function min that takes as parameters two references to constant
+// fixed-point numbers, and returns a reference to the smallest one.
+// • A static member function max that takes as parameters two references on fixed-point
+// numbers, and returns a reference to the greatest one.
+// • A static member function max that takes as parameters two references to constant
+// fixed-point numbers, and returns a reference to the greatest one.
 
 class Fixed
 {
@@ -61,6 +62,11 @@ public:
 	bool operator<=(const Fixed& other) const;
 	bool operator==(const Fixed& other) const;
 	bool operator!=(const Fixed& other) const;
+
+	Fixed &operator++(void);
+	Fixed operator++(int);
+	Fixed &operator--(void);
+	Fixed operator--(int);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);
