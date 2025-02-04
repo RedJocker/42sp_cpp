@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:15:41 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 19:03:49 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/04 20:00:20 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -190,4 +190,24 @@ Fixed Fixed::operator--(int)
 	Fixed ret(*this);
 	this->raw++;
 	return ret;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	return a >= b ? a : b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	return a >= b ? a : b;
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	return a <= b ? a : b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	return a <= b ? a : b;
 }

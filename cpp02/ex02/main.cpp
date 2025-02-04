@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 19:03:49 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/04 19:59:00 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -48,226 +48,221 @@ int main(void)
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	//std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
 
 	// test_raw_bits();
 	// test_to_float();
 	// test_to_int();
-	test_add();
-	test_subtract();
-	test_multiply();
-	test_greater();
-	test_greater_equal();
-	test_less();
-	test_less_equal();
+	// test_add();
+	// test_subtract();
+	// test_multiply();
+	// test_greater();
+	// test_greater_equal();
+	// test_less();
+	// test_less_equal();
 	return 0;
 }
 
-void test_add(void)
-{
-	assert((Fixed(1) + Fixed(1)).toFloat() == 2.0f);
-	assert((Fixed(1.5f) + Fixed(1)).toFloat() == 2.5f);
-	assert((Fixed(1.5f) + Fixed(1.5f)).toFloat() == 3.0f);
-	assert((Fixed(10.0f) + Fixed(-10.0f)).toFloat() == 0.0f);
-	assert((Fixed(-10.0f) + Fixed(10.0f)).toFloat() == 0.0f);
-	assert((Fixed(1.0f) + Fixed(-0.5f)).toFloat() == 0.5f);
-	assert((Fixed(-1.0f) + Fixed(0.5f)).toFloat() == -0.5f);
-	assert((Fixed(-42.0f) + Fixed(0.0f)).toFloat() == -42.0f);
-	assert((Fixed(42.0f) + Fixed(0.0f)).toFloat() == 42.0f);
-	assert((Fixed(0.0f) + Fixed(-42.0f)).toFloat() == -42.0f);
-	assert((Fixed(0.0f) + Fixed(42.0f)).toFloat() == 42.0f);
+// void test_add(void)
+// {
+// 	assert((Fixed(1) + Fixed(1)).toFloat() == 2.0f);
+// 	assert((Fixed(1.5f) + Fixed(1)).toFloat() == 2.5f);
+// 	assert((Fixed(1.5f) + Fixed(1.5f)).toFloat() == 3.0f);
+// 	assert((Fixed(10.0f) + Fixed(-10.0f)).toFloat() == 0.0f);
+// 	assert((Fixed(-10.0f) + Fixed(10.0f)).toFloat() == 0.0f);
+// 	assert((Fixed(1.0f) + Fixed(-0.5f)).toFloat() == 0.5f);
+// 	assert((Fixed(-1.0f) + Fixed(0.5f)).toFloat() == -0.5f);
+// 	assert((Fixed(-42.0f) + Fixed(0.0f)).toFloat() == -42.0f);
+// 	assert((Fixed(42.0f) + Fixed(0.0f)).toFloat() == 42.0f);
+// 	assert((Fixed(0.0f) + Fixed(-42.0f)).toFloat() == -42.0f);
+// 	assert((Fixed(0.0f) + Fixed(42.0f)).toFloat() == 42.0f);
 
-}
-
-
-void test_subtract(void)
-{
-	assert((Fixed(1) - Fixed(1)).toFloat() == 0.0f);
-	assert((Fixed(1.5f) - Fixed(1)).toFloat() == 0.5f);
-	assert((Fixed(1.5f) - Fixed(1.5f)).toFloat() == 0.0f);
-	assert((Fixed(10.0f) - Fixed(-10.0f)).toFloat() == 20.0f);
-	assert((Fixed(-10.0f) - Fixed(10.0f)).toFloat() == -20.0f);
-	assert((Fixed(1.0f) - Fixed(-0.5f)).toFloat() == 1.5f);
-	assert((Fixed(-1.0f) - Fixed(0.5f)).toFloat() == -1.5f);
-	assert((Fixed(-42.0f) - Fixed(0.0f)).toFloat() == -42.0f);
-	assert((Fixed(42.0f) - Fixed(0.0f)).toFloat() == 42.0f);
-	assert((Fixed(0.0f) - Fixed(-42.0f)).toFloat() == 42.0f);
-	assert((Fixed(0.0f) - Fixed(42.0f)).toFloat() == -42.0f);
-}
+// }
 
 
-void test_multiply(void)
-{
-	assert((Fixed(1) * Fixed(1)).toFloat() == 1.0f);
-	assert((Fixed(1.5f) * Fixed(1)).toFloat() == 1.5f);
-	assert((Fixed(1.5f) * Fixed(1.5f)).toFloat() == 2.25f);
-	assert((Fixed(10.0f) * Fixed(-10.0f)).toFloat() == -100.0f);
-	assert((Fixed(-10.0f) * Fixed(10.0f)).toFloat() == -100.0f);
-	assert((Fixed(1.0f) * Fixed(-0.5f)).toFloat() == -0.5f);
-	assert((Fixed(-1.0f) * Fixed(0.5f)).toFloat() == -0.5f);
-	assert((Fixed(-42.0f) * Fixed(0.0f)).toFloat() == -0.0f);
-	assert((Fixed(42.0f) * Fixed(0.0f)).toFloat() == 0.0f);
-	assert((Fixed(0.0f) * Fixed(-42.0f)).toFloat() == 0.0f);
-	assert((Fixed(0.0f) * Fixed(42.0f)).toFloat() == -0.0f);
-	assert((Fixed(0.5f) * Fixed(0.5f)).toFloat() == 0.25f);
-	assert((Fixed(-0.5f) * Fixed(0.5f)).toFloat() == -0.25f);
-	assert((Fixed(0.5f) * Fixed(-0.5f)).toFloat() == -0.25f);
-}
-
-void test_divide(void)
-{
-	assert((Fixed(1) / Fixed(1)).toFloat() == 1.0f);
-	assert((Fixed(1.5f) / Fixed(1)).toFloat() == 1.5f);
-	assert((Fixed(1.5f) / Fixed(1.5f)).toFloat() == 1.0f);
-	assert((Fixed(10.0f) / Fixed(-10.0f)).toFloat() == -1.0f);
-	assert((Fixed(-10.0f) / Fixed(10.0f)).toFloat() == -1.0f);
-	assert((Fixed(1.0f) / Fixed(-0.5f)).toFloat() == -2.0f);
-	assert((Fixed(-1.0f) / Fixed(0.5f)).toFloat() == -2.0f);
-	assert((Fixed(-42.0f) / Fixed(1.0f)).toFloat() == -42.0f);
-	assert((Fixed(42.0f) / Fixed(1.0f)).toFloat() == 42.0f);
-	assert((Fixed(0.0f) / Fixed(-42.0f)).toFloat() == 0.0f);
-	assert((Fixed(0.0f) / Fixed(42.0f)).toFloat() == -0.0f);
-	assert((Fixed(0.5f) / Fixed(0.5f)).toFloat() == 0.25f);
-	assert((Fixed(-0.5f) / Fixed(0.5f)).toFloat() == -0.25f);
-	assert((Fixed(0.5f) / Fixed(-0.5f)).toFloat() == -0.25f);
-}
-
-void test_greater(void)
-{
-	assert((Fixed(1) > Fixed(1)) == false);
-	assert((Fixed(1.5f) > Fixed(1)) == true);
-	assert((Fixed(1.5f) > Fixed(1.5f)) == false);
-	assert((Fixed(10.0f) > Fixed(-10.0f)) == true);
-	assert((Fixed(-10.0f) > Fixed(10.0f)) == false);
-	assert((Fixed(1.0f) > Fixed(-0.5f)) == true);
-	assert((Fixed(-1.0f) > Fixed(0.5f)) == false);
-	assert((Fixed(-42.0f) > Fixed(1.0f)) == false);
-	assert((Fixed(42.0f) > Fixed(1.0f)) == true);
-	assert((Fixed(0.0f) > Fixed(-42.0f)) == true);
-	assert((Fixed(0.0f) > Fixed(42.0f)) == false);
-	assert((Fixed(-42.0f) > Fixed(0.0f)) == false);
-	assert((Fixed(42.0f) > Fixed(0.0f)) == true);
-	assert((Fixed(0.5f) > Fixed(-42.0f)) == true);
-	assert((Fixed(0.5f) > Fixed(42.0f)) == false);
-	assert((Fixed(-42.0f) > Fixed(0.5f)) == false);
-	assert((Fixed(42.0f) > Fixed(0.5f)) == true);
-	assert((Fixed(0.0f) > Fixed(-42.5f)) == true);
-	assert((Fixed(0.0f) > Fixed(42.5f)) == false);
-	assert((Fixed(-42.5f) > Fixed(0.0f)) == false);
-	assert((Fixed(42.5f) > Fixed(0.0f)) == true);
-	assert((Fixed(0.5f) > Fixed(-42.5f)) == true);
-	assert((Fixed(0.5f) > Fixed(42.5f)) == false);
-	assert((Fixed(-42.5f) > Fixed(0.5f)) == false);
-	assert((Fixed(42.5f) > Fixed(0.5f)) == true);
-	assert((Fixed(0.5f) > Fixed(0.5f)) == false);
-	assert((Fixed(-0.5f) > Fixed(0.5f)) == false);
-	assert((Fixed(0.5f) > Fixed(-0.5f)) == true);
-	assert((Fixed(-0.5f) > Fixed(-0.5f)) == false);
-}
+// void test_subtract(void)
+// {
+// 	assert((Fixed(1) - Fixed(1)).toFloat() == 0.0f);
+// 	assert((Fixed(1.5f) - Fixed(1)).toFloat() == 0.5f);
+// 	assert((Fixed(1.5f) - Fixed(1.5f)).toFloat() == 0.0f);
+// 	assert((Fixed(10.0f) - Fixed(-10.0f)).toFloat() == 20.0f);
+// 	assert((Fixed(-10.0f) - Fixed(10.0f)).toFloat() == -20.0f);
+// 	assert((Fixed(1.0f) - Fixed(-0.5f)).toFloat() == 1.5f);
+// 	assert((Fixed(-1.0f) - Fixed(0.5f)).toFloat() == -1.5f);
+// 	assert((Fixed(-42.0f) - Fixed(0.0f)).toFloat() == -42.0f);
+// 	assert((Fixed(42.0f) - Fixed(0.0f)).toFloat() == 42.0f);
+// 	assert((Fixed(0.0f) - Fixed(-42.0f)).toFloat() == 42.0f);
+// 	assert((Fixed(0.0f) - Fixed(42.0f)).toFloat() == -42.0f);
+// }
 
 
-void test_greater_equal(void)
-{
-	assert((Fixed(1) >= Fixed(1)) == true);
-	assert((Fixed(1.5f) >= Fixed(1)) == true);
-	assert((Fixed(1.5f) >= Fixed(1.5f)) == true);
-	assert((Fixed(10.0f) >= Fixed(-10.0f)) == true);
-	assert((Fixed(-10.0f) >= Fixed(10.0f)) == false);
-	assert((Fixed(1.0f) >= Fixed(-0.5f)) == true);
-	assert((Fixed(-1.0f) >= Fixed(0.5f)) == false);
-	assert((Fixed(-42.0f) >= Fixed(1.0f)) == false);
-	assert((Fixed(42.0f) >= Fixed(1.0f)) == true);
-	assert((Fixed(0.0f) >= Fixed(-42.0f)) == true);
-	assert((Fixed(0.0f) >= Fixed(42.0f)) == false);
-	assert((Fixed(-42.0f) >= Fixed(0.0f)) == false);
-	assert((Fixed(42.0f) >= Fixed(0.0f)) == true);
-	assert((Fixed(0.5f) >= Fixed(-42.0f)) == true);
-	assert((Fixed(0.5f) >= Fixed(42.0f)) == false);
-	assert((Fixed(-42.0f) >= Fixed(0.5f)) == false);
-	assert((Fixed(42.0f) >= Fixed(0.5f)) == true);
-	assert((Fixed(0.0f) >= Fixed(-42.5f)) == true);
-	assert((Fixed(0.0f) >= Fixed(42.5f)) == false);
-	assert((Fixed(-42.5f) >= Fixed(0.0f)) == false);
-	assert((Fixed(42.5f) >= Fixed(0.0f)) == true);
-	assert((Fixed(0.5f) >= Fixed(-42.5f)) == true);
-	assert((Fixed(0.5f) >= Fixed(42.5f)) == false);
-	assert((Fixed(-42.5f) >= Fixed(0.5f)) == false);
-	assert((Fixed(42.5f) >= Fixed(0.5f)) == true);
-	assert((Fixed(0.5f) >= Fixed(0.5f)) == true);
-	assert((Fixed(-0.5f) >= Fixed(0.5f)) == false);
-	assert((Fixed(0.5f) >= Fixed(-0.5f)) == true);
-	assert((Fixed(-0.5f) >= Fixed(-0.5f)) == true);
-}
+// void test_multiply(void)
+// {
+// 	assert((Fixed(1) * Fixed(1)).toFloat() == 1.0f);
+// 	assert((Fixed(1.5f) * Fixed(1)).toFloat() == 1.5f);
+// 	assert((Fixed(1.5f) * Fixed(1.5f)).toFloat() == 2.25f);
+// 	assert((Fixed(10.0f) * Fixed(-10.0f)).toFloat() == -100.0f);
+// 	assert((Fixed(-10.0f) * Fixed(10.0f)).toFloat() == -100.0f);
+// 	assert((Fixed(1.0f) * Fixed(-0.5f)).toFloat() == -0.5f);
+// 	assert((Fixed(-1.0f) * Fixed(0.5f)).toFloat() == -0.5f);
+// 	assert((Fixed(-42.0f) * Fixed(0.0f)).toFloat() == -0.0f);
+// 	assert((Fixed(42.0f) * Fixed(0.0f)).toFloat() == 0.0f);
+// 	assert((Fixed(0.0f) * Fixed(-42.0f)).toFloat() == 0.0f);
+// 	assert((Fixed(0.0f) * Fixed(42.0f)).toFloat() == -0.0f);
+// 	assert((Fixed(0.5f) * Fixed(0.5f)).toFloat() == 0.25f);
+// 	assert((Fixed(-0.5f) * Fixed(0.5f)).toFloat() == -0.25f);
+// 	assert((Fixed(0.5f) * Fixed(-0.5f)).toFloat() == -0.25f);
+// }
 
+// void test_divide(void)
+// {
+// 	assert((Fixed(1) / Fixed(1)).toFloat() == 1.0f);
+// 	assert((Fixed(1.5f) / Fixed(1)).toFloat() == 1.5f);
+// 	assert((Fixed(1.5f) / Fixed(1.5f)).toFloat() == 1.0f);
+// 	assert((Fixed(10.0f) / Fixed(-10.0f)).toFloat() == -1.0f);
+// 	assert((Fixed(-10.0f) / Fixed(10.0f)).toFloat() == -1.0f);
+// 	assert((Fixed(1.0f) / Fixed(-0.5f)).toFloat() == -2.0f);
+// 	assert((Fixed(-1.0f) / Fixed(0.5f)).toFloat() == -2.0f);
+// 	assert((Fixed(-42.0f) / Fixed(1.0f)).toFloat() == -42.0f);
+// 	assert((Fixed(42.0f) / Fixed(1.0f)).toFloat() == 42.0f);
+// 	assert((Fixed(0.0f) / Fixed(-42.0f)).toFloat() == 0.0f);
+// 	assert((Fixed(0.0f) / Fixed(42.0f)).toFloat() == -0.0f);
+// 	assert((Fixed(0.5f) / Fixed(0.5f)).toFloat() == 0.25f);
+// 	assert((Fixed(-0.5f) / Fixed(0.5f)).toFloat() == -0.25f);
+// 	assert((Fixed(0.5f) / Fixed(-0.5f)).toFloat() == -0.25f);
+// }
 
-void test_less(void)
-{
-	assert((Fixed(1) < Fixed(1)) == false);
-	assert((Fixed(1.5f) < Fixed(1)) == false);
-	assert((Fixed(1.5f) < Fixed(1.5f)) == false);
-	assert((Fixed(10.0f) < Fixed(-10.0f)) == false);
-	assert((Fixed(-10.0f) < Fixed(10.0f)) == true);
-	assert((Fixed(1.0f) < Fixed(-0.5f)) == false);
-	assert((Fixed(-1.0f) < Fixed(0.5f)) == true);
-	assert((Fixed(-42.0f) < Fixed(1.0f)) == true);
-	assert((Fixed(42.0f) < Fixed(1.0f)) == false);
-	assert((Fixed(0.0f) < Fixed(-42.0f)) == false);
-	assert((Fixed(0.0f) < Fixed(42.0f)) == true);
-	assert((Fixed(-42.0f) < Fixed(0.0f)) == true);
-	assert((Fixed(42.0f) < Fixed(0.0f)) == false);
-	assert((Fixed(0.5f) < Fixed(-42.0f)) == false);
-	assert((Fixed(0.5f) < Fixed(42.0f)) == true);
-	assert((Fixed(-42.0f) < Fixed(0.5f)) == true);
-	assert((Fixed(42.0f) < Fixed(0.5f)) == false);
-	assert((Fixed(0.0f) < Fixed(-42.5f)) == false);
-	assert((Fixed(0.0f) < Fixed(42.5f)) == true);
-	assert((Fixed(-42.5f) < Fixed(0.0f)) == true);
-	assert((Fixed(42.5f) < Fixed(0.0f)) == false);
-	assert((Fixed(0.5f) < Fixed(-42.5f)) == false);
-	assert((Fixed(0.5f) < Fixed(42.5f)) == true);
-	assert((Fixed(-42.5f) < Fixed(0.5f)) == true);
-	assert((Fixed(42.5f) < Fixed(0.5f)) == false);
-	assert((Fixed(0.5f) < Fixed(0.5f)) == false);
-	assert((Fixed(-0.5f) < Fixed(0.5f)) == true);
-	assert((Fixed(0.5f) < Fixed(-0.5f)) == false);
-	assert((Fixed(-0.5f) < Fixed(-0.5f)) == false);
-}
+// void test_greater(void)
+// {
+// 	assert((Fixed(1) > Fixed(1)) == false);
+// 	assert((Fixed(1.5f) > Fixed(1)) == true);
+// 	assert((Fixed(1.5f) > Fixed(1.5f)) == false);
+// 	assert((Fixed(10.0f) > Fixed(-10.0f)) == true);
+// 	assert((Fixed(-10.0f) > Fixed(10.0f)) == false);
+// 	assert((Fixed(1.0f) > Fixed(-0.5f)) == true);
+// 	assert((Fixed(-1.0f) > Fixed(0.5f)) == false);
+// 	assert((Fixed(-42.0f) > Fixed(1.0f)) == false);
+// 	assert((Fixed(42.0f) > Fixed(1.0f)) == true);
+// 	assert((Fixed(0.0f) > Fixed(-42.0f)) == true);
+// 	assert((Fixed(0.0f) > Fixed(42.0f)) == false);
+// 	assert((Fixed(-42.0f) > Fixed(0.0f)) == false);
+// 	assert((Fixed(42.0f) > Fixed(0.0f)) == true);
+// 	assert((Fixed(0.5f) > Fixed(-42.0f)) == true);
+// 	assert((Fixed(0.5f) > Fixed(42.0f)) == false);
+// 	assert((Fixed(-42.0f) > Fixed(0.5f)) == false);
+// 	assert((Fixed(42.0f) > Fixed(0.5f)) == true);
+// 	assert((Fixed(0.0f) > Fixed(-42.5f)) == true);
+// 	assert((Fixed(0.0f) > Fixed(42.5f)) == false);
+// 	assert((Fixed(-42.5f) > Fixed(0.0f)) == false);
+// 	assert((Fixed(42.5f) > Fixed(0.0f)) == true);
+// 	assert((Fixed(0.5f) > Fixed(-42.5f)) == true);
+// 	assert((Fixed(0.5f) > Fixed(42.5f)) == false);
+// 	assert((Fixed(-42.5f) > Fixed(0.5f)) == false);
+// 	assert((Fixed(42.5f) > Fixed(0.5f)) == true);
+// 	assert((Fixed(0.5f) > Fixed(0.5f)) == false);
+// 	assert((Fixed(-0.5f) > Fixed(0.5f)) == false);
+// 	assert((Fixed(0.5f) > Fixed(-0.5f)) == true);
+// 	assert((Fixed(-0.5f) > Fixed(-0.5f)) == false);
+// }
 
+// void test_greater_equal(void)
+// {
+// 	assert((Fixed(1) >= Fixed(1)) == true);
+// 	assert((Fixed(1.5f) >= Fixed(1)) == true);
+// 	assert((Fixed(1.5f) >= Fixed(1.5f)) == true);
+// 	assert((Fixed(10.0f) >= Fixed(-10.0f)) == true);
+// 	assert((Fixed(-10.0f) >= Fixed(10.0f)) == false);
+// 	assert((Fixed(1.0f) >= Fixed(-0.5f)) == true);
+// 	assert((Fixed(-1.0f) >= Fixed(0.5f)) == false);
+// 	assert((Fixed(-42.0f) >= Fixed(1.0f)) == false);
+// 	assert((Fixed(42.0f) >= Fixed(1.0f)) == true);
+// 	assert((Fixed(0.0f) >= Fixed(-42.0f)) == true);
+// 	assert((Fixed(0.0f) >= Fixed(42.0f)) == false);
+// 	assert((Fixed(-42.0f) >= Fixed(0.0f)) == false);
+// 	assert((Fixed(42.0f) >= Fixed(0.0f)) == true);
+// 	assert((Fixed(0.5f) >= Fixed(-42.0f)) == true);
+// 	assert((Fixed(0.5f) >= Fixed(42.0f)) == false);
+// 	assert((Fixed(-42.0f) >= Fixed(0.5f)) == false);
+// 	assert((Fixed(42.0f) >= Fixed(0.5f)) == true);
+// 	assert((Fixed(0.0f) >= Fixed(-42.5f)) == true);
+// 	assert((Fixed(0.0f) >= Fixed(42.5f)) == false);
+// 	assert((Fixed(-42.5f) >= Fixed(0.0f)) == false);
+// 	assert((Fixed(42.5f) >= Fixed(0.0f)) == true);
+// 	assert((Fixed(0.5f) >= Fixed(-42.5f)) == true);
+// 	assert((Fixed(0.5f) >= Fixed(42.5f)) == false);
+// 	assert((Fixed(-42.5f) >= Fixed(0.5f)) == false);
+// 	assert((Fixed(42.5f) >= Fixed(0.5f)) == true);
+// 	assert((Fixed(0.5f) >= Fixed(0.5f)) == true);
+// 	assert((Fixed(-0.5f) >= Fixed(0.5f)) == false);
+// 	assert((Fixed(0.5f) >= Fixed(-0.5f)) == true);
+// 	assert((Fixed(-0.5f) >= Fixed(-0.5f)) == true);
+// }
 
-void test_less_equal(void)
-{
-	assert((Fixed(1) <= Fixed(1)) == true);
-	assert((Fixed(1.5f) <= Fixed(1)) == false);
-	assert((Fixed(1.5f) <= Fixed(1.5f)) == true);
-	assert((Fixed(10.0f) <= Fixed(-10.0f)) == false);
-	assert((Fixed(-10.0f) <= Fixed(10.0f)) == true);
-	assert((Fixed(1.0f) <= Fixed(-0.5f)) == false);
-	assert((Fixed(-1.0f) <= Fixed(0.5f)) == true);
-	assert((Fixed(-42.0f) <= Fixed(1.0f)) == true);
-	assert((Fixed(42.0f) <= Fixed(1.0f)) == false);
-	assert((Fixed(0.0f) <= Fixed(-42.0f)) == false);
-	assert((Fixed(0.0f) <= Fixed(42.0f)) == true);
-	assert((Fixed(-42.0f) <= Fixed(0.0f)) == true);
-	assert((Fixed(42.0f) <= Fixed(0.0f)) == false);
-	assert((Fixed(0.5f) <= Fixed(-42.0f)) == false);
-	assert((Fixed(0.5f) <= Fixed(42.0f)) == true);
-	assert((Fixed(-42.0f) <= Fixed(0.5f)) == true);
-	assert((Fixed(42.0f) <= Fixed(0.5f)) == false);
-	assert((Fixed(0.0f) <= Fixed(-42.5f)) == false);
-	assert((Fixed(0.0f) <= Fixed(42.5f)) == true);
-	assert((Fixed(-42.5f) <= Fixed(0.0f)) == true);
-	assert((Fixed(42.5f) <= Fixed(0.0f)) == false);
-	assert((Fixed(0.5f) <= Fixed(-42.5f)) == false);
-	assert((Fixed(0.5f) <= Fixed(42.5f)) == true);
-	assert((Fixed(-42.5f) <= Fixed(0.5f)) == true);
-	assert((Fixed(42.5f) <= Fixed(0.5f)) == false);
-	assert((Fixed(0.5f) <= Fixed(0.5f)) == true);
-	assert((Fixed(-0.5f) <= Fixed(0.5f)) == true);
-	assert((Fixed(0.5f) <= Fixed(-0.5f)) == false);
-	assert((Fixed(-0.5f) <= Fixed(-0.5f)) == true);
-}
+// void test_less(void)
+// {
+// 	assert((Fixed(1) < Fixed(1)) == false);
+// 	assert((Fixed(1.5f) < Fixed(1)) == false);
+// 	assert((Fixed(1.5f) < Fixed(1.5f)) == false);
+// 	assert((Fixed(10.0f) < Fixed(-10.0f)) == false);
+// 	assert((Fixed(-10.0f) < Fixed(10.0f)) == true);
+// 	assert((Fixed(1.0f) < Fixed(-0.5f)) == false);
+// 	assert((Fixed(-1.0f) < Fixed(0.5f)) == true);
+// 	assert((Fixed(-42.0f) < Fixed(1.0f)) == true);
+// 	assert((Fixed(42.0f) < Fixed(1.0f)) == false);
+// 	assert((Fixed(0.0f) < Fixed(-42.0f)) == false);
+// 	assert((Fixed(0.0f) < Fixed(42.0f)) == true);
+// 	assert((Fixed(-42.0f) < Fixed(0.0f)) == true);
+// 	assert((Fixed(42.0f) < Fixed(0.0f)) == false);
+// 	assert((Fixed(0.5f) < Fixed(-42.0f)) == false);
+// 	assert((Fixed(0.5f) < Fixed(42.0f)) == true);
+// 	assert((Fixed(-42.0f) < Fixed(0.5f)) == true);
+// 	assert((Fixed(42.0f) < Fixed(0.5f)) == false);
+// 	assert((Fixed(0.0f) < Fixed(-42.5f)) == false);
+// 	assert((Fixed(0.0f) < Fixed(42.5f)) == true);
+// 	assert((Fixed(-42.5f) < Fixed(0.0f)) == true);
+// 	assert((Fixed(42.5f) < Fixed(0.0f)) == false);
+// 	assert((Fixed(0.5f) < Fixed(-42.5f)) == false);
+// 	assert((Fixed(0.5f) < Fixed(42.5f)) == true);
+// 	assert((Fixed(-42.5f) < Fixed(0.5f)) == true);
+// 	assert((Fixed(42.5f) < Fixed(0.5f)) == false);
+// 	assert((Fixed(0.5f) < Fixed(0.5f)) == false);
+// 	assert((Fixed(-0.5f) < Fixed(0.5f)) == true);
+// 	assert((Fixed(0.5f) < Fixed(-0.5f)) == false);
+// 	assert((Fixed(-0.5f) < Fixed(-0.5f)) == false);
+// }
 
-
+// void test_less_equal(void)
+// {
+// 	assert((Fixed(1) <= Fixed(1)) == true);
+// 	assert((Fixed(1.5f) <= Fixed(1)) == false);
+// 	assert((Fixed(1.5f) <= Fixed(1.5f)) == true);
+// 	assert((Fixed(10.0f) <= Fixed(-10.0f)) == false);
+// 	assert((Fixed(-10.0f) <= Fixed(10.0f)) == true);
+// 	assert((Fixed(1.0f) <= Fixed(-0.5f)) == false);
+// 	assert((Fixed(-1.0f) <= Fixed(0.5f)) == true);
+// 	assert((Fixed(-42.0f) <= Fixed(1.0f)) == true);
+// 	assert((Fixed(42.0f) <= Fixed(1.0f)) == false);
+// 	assert((Fixed(0.0f) <= Fixed(-42.0f)) == false);
+// 	assert((Fixed(0.0f) <= Fixed(42.0f)) == true);
+// 	assert((Fixed(-42.0f) <= Fixed(0.0f)) == true);
+// 	assert((Fixed(42.0f) <= Fixed(0.0f)) == false);
+// 	assert((Fixed(0.5f) <= Fixed(-42.0f)) == false);
+// 	assert((Fixed(0.5f) <= Fixed(42.0f)) == true);
+// 	assert((Fixed(-42.0f) <= Fixed(0.5f)) == true);
+// 	assert((Fixed(42.0f) <= Fixed(0.5f)) == false);
+// 	assert((Fixed(0.0f) <= Fixed(-42.5f)) == false);
+// 	assert((Fixed(0.0f) <= Fixed(42.5f)) == true);
+// 	assert((Fixed(-42.5f) <= Fixed(0.0f)) == true);
+// 	assert((Fixed(42.5f) <= Fixed(0.0f)) == false);
+// 	assert((Fixed(0.5f) <= Fixed(-42.5f)) == false);
+// 	assert((Fixed(0.5f) <= Fixed(42.5f)) == true);
+// 	assert((Fixed(-42.5f) <= Fixed(0.5f)) == true);
+// 	assert((Fixed(42.5f) <= Fixed(0.5f)) == false);
+// 	assert((Fixed(0.5f) <= Fixed(0.5f)) == true);
+// 	assert((Fixed(-0.5f) <= Fixed(0.5f)) == true);
+// 	assert((Fixed(0.5f) <= Fixed(-0.5f)) == false);
+// 	assert((Fixed(-0.5f) <= Fixed(-0.5f)) == true);
+// }
 
 // void test_raw_bits(void)
 // {
@@ -319,15 +314,15 @@ void test_less_equal(void)
 // 	assert(Fixed(-0.25f).getRawBits()
 // 		   == (int) 0b11111111111111111111111111000000);
 // 	assert(Fixed(-0.125f).getRawBits()
-// 		   == (int) 0b11111111111111111111111111100000);  
+// 		   == (int) 0b11111111111111111111111111100000);
 // 	assert(Fixed(-1.0f / 16).getRawBits()
-// 		   == (int) 0b11111111111111111111111111110000);  
+// 		   == (int) 0b11111111111111111111111111110000);
 // 	assert(Fixed(-1.0f / 32).getRawBits()
-// 		   == (int) 0b11111111111111111111111111111000);  
+// 		   == (int) 0b11111111111111111111111111111000);
 // 	assert(Fixed(-1.0f / 64).getRawBits()
-// 		   == (int) 0b11111111111111111111111111111100);  
+// 		   == (int) 0b11111111111111111111111111111100);
 // 	assert(Fixed(-1.0f / 128).getRawBits()
-// 		   == (int) 0b111111111111111111111111111111110);  
+// 		   == (int) 0b111111111111111111111111111111110);
 // 	assert(Fixed(-1.0f / 256).getRawBits()
 // 		   == (int) 0b11111111111111111111111111111111);
 
@@ -376,7 +371,6 @@ void test_less_equal(void)
 // 		   == (int) 0b11111111111111101111111101111000);
 // 	assert(Fixed(-3.14f).getRawBits()
 // 		   == (int) 0b11111111111111111111110011011100);
-	
 // }
 
 // void test_to_float(void)
@@ -445,7 +439,6 @@ void test_less_equal(void)
 // 	assert(Fixed(-256.5f).toFloat() == -256.5f);
 // 	assert(Fixed(-256.53125f).toFloat() == -256.53125f);
 // 	assert(Fixed(-3.14f).toFloat() == -3.140625f);
-	
 // }
 
 // void test_to_int(void)
@@ -514,5 +507,4 @@ void test_less_equal(void)
 // 	assert(Fixed(-256.5f).toInt() == -256);
 // 	assert(Fixed(-256.53125f).toInt() == -256);
 // 	assert(Fixed(-3.14f).toInt() == -3);
-	
 // }

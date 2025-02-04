@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:10:49 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 18:46:39 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/04 19:14:19 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -67,6 +67,11 @@ public:
 	Fixed operator++(int);
 	Fixed &operator--(void);
 	Fixed operator--(int);
+
+	static Fixed &max(Fixed &a, Fixed &b);
+	static const Fixed &max(const Fixed &a, const Fixed &b);
+	static Fixed &min(Fixed &a, Fixed &b);
+	static const Fixed &min(const Fixed &a, const Fixed &b);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);
