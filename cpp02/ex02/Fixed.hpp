@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:10:49 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 19:14:19 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/05 19:13:58 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -36,7 +36,7 @@ class Fixed
 {
 	static const int fractional_bits = 8;
 	static const int sign_mask       = 0b10000000000000000000000000000000;
-	static const int uint_mask       = 0b01111111111111111111111100000000;
+	static const int int_mask        = 0b11111111111111111111111100000000;
 	static const int decimal_mask    = 0b00000000000000000000000011111111;
 	int raw;
 public:

@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:15:41 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/05 04:16:35 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/05 19:25:30 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -80,22 +80,16 @@ Fixed::Fixed(float num)
 
 float Fixed::toFloat(void) const
 {
-	bool is_negative = this->raw & sign_mask;
-	int pos_raw = is_negative ? ~(this->raw - 1) : this->raw;
-	int int_part = (pos_raw & uint_mask) >> fractional_bits;
-	float decimal_part = (pos_raw & decimal_mask);
+	int int_part = (this->raw & int_mask) / (1 << fractional_bits);
+	float decimal_part = (this->raw & decimal_mask);
 	decimal_part /= (1 << fractional_bits);
 	float res = static_cast<float>(int_part) + decimal_part;
-	return is_negative ? -res : res;
+	return res;
 }
 
 int Fixed::toInt(void) const
 {
-	bool is_negative = this->raw & sign_mask;
-	int pos_raw = is_negative ? ~(this->raw - 1) : this->raw;
-	int int_part = (pos_raw & uint_mask) >> fractional_bits;
-	return is_negative ? -int_part : int_part;
-
+	return static_cast<int>(this->toFloat());
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
