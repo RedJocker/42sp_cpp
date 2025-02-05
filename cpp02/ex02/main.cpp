@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/04 19:59:00 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/05 04:17:43 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -32,6 +32,7 @@ void test_to_int(void);
 void test_add(void);
 void test_subtract(void);
 void test_multiply(void);
+void test_divide(void);
 void test_greater(void);
 void test_greater_equal(void);
 void test_less(void);
@@ -56,6 +57,7 @@ int main(void)
 	// test_add();
 	// test_subtract();
 	// test_multiply();
+	//test_divide();
 	// test_greater();
 	// test_greater_equal();
 	// test_less();
@@ -127,9 +129,10 @@ int main(void)
 // 	assert((Fixed(42.0f) / Fixed(1.0f)).toFloat() == 42.0f);
 // 	assert((Fixed(0.0f) / Fixed(-42.0f)).toFloat() == 0.0f);
 // 	assert((Fixed(0.0f) / Fixed(42.0f)).toFloat() == -0.0f);
-// 	assert((Fixed(0.5f) / Fixed(0.5f)).toFloat() == 0.25f);
-// 	assert((Fixed(-0.5f) / Fixed(0.5f)).toFloat() == -0.25f);
-// 	assert((Fixed(0.5f) / Fixed(-0.5f)).toFloat() == -0.25f);
+// 	assert((Fixed(0.5f) / Fixed(0.5f)).toFloat() == 1.0f);
+// 	assert((Fixed(-0.5f) / Fixed(0.5f)).toFloat() == -1.0f);
+// 	assert((Fixed(0.5f) / Fixed(-0.5f)).toFloat() == -1.0f);
+// 	assert((Fixed(-1.0f) / Fixed(-2.0f)).toFloat() == 0.5f);
 // }
 
 // void test_greater(void)
