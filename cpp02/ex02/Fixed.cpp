@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 16:15:41 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/05 19:25:30 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/05 20:55:52 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -128,22 +128,26 @@ Fixed Fixed::operator/(const Fixed& other) const
 
 bool Fixed::operator>(const Fixed& other) const
 {
-	return (this->raw - other.raw) > 0;
+	return (static_cast<long long>(this->raw)
+			- static_cast<long long>(other.raw)) > 0;
 }
 
 bool Fixed::operator>=(const Fixed& other) const
 {
-	return (this->raw - other.raw) >= 0;
+	return (static_cast<long long>(this->raw)
+			- static_cast<long long>(other.raw)) >= 0;
 }
 
 bool Fixed::operator<(const Fixed& other) const
 {
-	return (this->raw - other.raw) < 0;
+	return (static_cast<long long>(this->raw)
+			- static_cast<long long>(other.raw)) < 0;
 }
 
 bool Fixed::operator<=(const Fixed& other) const
 {
-	return (this->raw - other.raw) <= 0;
+	return (static_cast<long long>(this->raw)
+			- static_cast<long long>(other.raw)) <= 0;
 }
 
 bool Fixed::operator==(const Fixed& other) const
