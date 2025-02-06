@@ -6,13 +6,15 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/02/06 02:17:21 by maurodri         ###   ########.fr        #
+#    Updated: 2025/02/06 17:56:36 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 MANDATORY_DIR := ./
 
-FILES := 
+FILES := ClapTrap.cpp \
+	main.cpp
+
 
 
 OBJ_DIR := ./obj/
@@ -22,7 +24,7 @@ VPATH := $(MANDATORY_DIR)
 CFLAGS := -g3 -std=c++98 -Wall -Wextra #-Werror
 CC := c++
 
-NAME := fixed
+NAME := trap
 INCLUDES := -I $(MANDATORY_DIR)
 OBJS := $(MANDATORY_OBJS)
 ETAGS_BASE := $(MANDATORY_DIR)

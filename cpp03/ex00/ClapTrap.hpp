@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/06 01:54:34 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/06 02:27:43 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/06 19:32:14 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -44,7 +44,14 @@ class ClapTrap
 	int hitPoints;
 	int energyPoints;
 	int attackDamage;
+
+	bool active() const;
+	bool alive() const;
+	void announce() const;
 	
+	const static int INITIAL_HIT_POINTS = 10;
+	const static int INITIAL_ENERGY_POINTS = 10;
+	const static int INITIAL_ATTACK_DAMAGE = 10;
 public:
 	ClapTrap();
 	ClapTrap(std::string name);
@@ -55,7 +62,6 @@ public:
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	
 };
 
 #endif
