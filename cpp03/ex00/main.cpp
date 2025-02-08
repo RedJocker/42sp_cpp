@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/06 19:34:22 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/07 23:42:23 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -47,14 +47,6 @@ int	main(void)
 		tired_copy.beRepaired(2);
 	tired_copy.attack("tired person");
 	tired_copy.takeDamage(3);
-
-	furious_clap.takeDamage(5);
-	furious_clap.beRepaired(100);
-	furious_clap.attack("dead person");
-	furious_clap.takeDamage(5);
-
-	furious_clap = furious_clap;
-	std::cout << std::endl;
 
 	furious_clap.takeDamage(5);
 	furious_clap.beRepaired(100);
