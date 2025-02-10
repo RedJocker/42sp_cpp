@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/05 20:55:53 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/09 02:31:18 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -166,11 +166,11 @@ void test_greater(void)
 	assert((Fixed(-0.5f) > Fixed(0.5f)) == false);
 	assert((Fixed(0.5f) > Fixed(-0.5f)) == true);
 	assert((Fixed(-0.5f) > Fixed(-0.5f)) == false);
-	const Fixed min;
-	const_cast<Fixed&>(min).setRawBits(0b10000000000000000000000000000000);
+	Fixed min;
+	min.setRawBits(0b10000000000000000000000000000000);
 	assert(Fixed(0) > min);
-	const Fixed max;
-	const_cast<Fixed&>(max).setRawBits(0b01111111111111111111111111111111);
+	Fixed max;
+	max.setRawBits(0b01111111111111111111111111111111);
 	assert((max > Fixed(0)) == true);
 	assert((max > min) == true);
 	assert((min + 1 > min) == true);
@@ -214,11 +214,11 @@ void test_greater_equal(void)
 	assert((Fixed(-0.5f) >= Fixed(0.5f)) == false);
 	assert((Fixed(0.5f) >= Fixed(-0.5f)) == true);
 	assert((Fixed(-0.5f) >= Fixed(-0.5f)) == true);
-	const Fixed min;
-	const_cast<Fixed&>(min).setRawBits(0b10000000000000000000000000000000);
+	Fixed min;
+	min.setRawBits(0b10000000000000000000000000000000);
 	assert(Fixed(0) > min);
-	const Fixed max;
-	const_cast<Fixed&>(max).setRawBits(0b01111111111111111111111111111111);
+	Fixed max;
+	max.setRawBits(0b01111111111111111111111111111111);
 	assert((max >= Fixed(0)) == true);
 	assert((max >= min) == true);
 	assert((min + 1 >= min) == true);
@@ -262,11 +262,11 @@ void test_less(void)
 	assert((Fixed(-0.5f) < Fixed(0.5f)) == true);
 	assert((Fixed(0.5f) < Fixed(-0.5f)) == false);
 	assert((Fixed(-0.5f) < Fixed(-0.5f)) == false);
-	const Fixed min;
-	const_cast<Fixed&>(min).setRawBits(0b10000000000000000000000000000000);
+	Fixed min;
+	min.setRawBits(0b10000000000000000000000000000000);
 	assert(Fixed(0) > min);
-	const Fixed max;
-	const_cast<Fixed&>(max).setRawBits(0b01111111111111111111111111111111);
+	Fixed max;
+	max.setRawBits(0b01111111111111111111111111111111);
 	assert((max < Fixed(0)) == false);
 	assert((max < min) == false);
 	assert((min + 1 < min) == false);
@@ -310,11 +310,11 @@ void test_less_equal(void)
 	assert((Fixed(-0.5f) <= Fixed(0.5f)) == true);
 	assert((Fixed(0.5f) <= Fixed(-0.5f)) == false);
 	assert((Fixed(-0.5f) <= Fixed(-0.5f)) == true);
-	const Fixed min;
-	const_cast<Fixed&>(min).setRawBits(0b10000000000000000000000000000000);
+	Fixed min;
+	min.setRawBits(0b10000000000000000000000000000000);
 	assert(Fixed(0) > min);
-	const Fixed max;
-	const_cast<Fixed&>(max).setRawBits(0b01111111111111111111111111111111);
+	Fixed max;
+	max.setRawBits(0b01111111111111111111111111111111);
 	assert((max <= Fixed(0)) == false);
 	assert((max <= min) == false);
 	assert((min + 1 <= min) == false);
