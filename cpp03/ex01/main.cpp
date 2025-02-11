@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/07 23:54:32 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/11 19:00:45 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -55,26 +55,18 @@ int	main(void)
 	furious_scav.attack("yet another person");
 	furious_scav.beRepaired(1);
 
-	ClapTrap tired_copy = furious_scav;
+	ScavTrap tired_copy = furious_scav;
 	std::cout << std::endl;
 
-	for (int i = 0; i < 4; i++)
-		tired_copy.beRepaired(2);
+	for (int i = 0; i < 41; i++)
+		tired_copy.beRepaired(1);
 	tired_copy.attack("tired person");
 	tired_copy.takeDamage(3);
 
-	furious_scav.takeDamage(5);
+	furious_scav.takeDamage(89);
 	furious_scav.beRepaired(100);
 	furious_scav.attack("dead person");
 	furious_scav.takeDamage(5);
-
-	// furious_clap = furious_clap;
-	// std::cout << std::endl;
-
-	// furious_clap.takeDamage(5);
-	// furious_clap.beRepaired(100);
-	// furious_clap.attack("dead person");
-	// furious_clap.takeDamage(5);
 
 	return 0;
 }

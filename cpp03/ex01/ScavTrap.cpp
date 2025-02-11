@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/07 22:37:13 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/07 23:54:56 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/11 18:49:35 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -44,7 +44,7 @@ ScavTrap::ScavTrap() : ClapTrap("scav with no name")
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap(std::string name)" << std::endl;
+	std::cout << "ScavTrap(" << name << ")" << std::endl;
 	this->hitPoints = initialHitPoints();
 	this->energyPoints = initialEnergyPoints();
 	this->attackDamage = initialAttackDamage();
@@ -52,16 +52,16 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap &other)
 {
-	std::cout << "ScavTrap(const ScavTrap &other)" << std::endl;
+	std::cout << "ScavTrap(const ScavTrap &other[" << other.name << "])" << std::endl;
 	*this = other;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
-	std::cout << "operator=(const ScavTrap &other)" << std::endl;
+	std::cout << "operator=(const ScavTrap &other[" <<  other.name << "])" << std::endl;
 	if (this == &other)
 		return *this;
-	this->name = other.name + "scav_copy";
+	this->name = other.name + "_scav_copy";
 	this->hitPoints = std::min(other.hitPoints, initialHitPoints());
 	this->energyPoints = std::min(other.energyPoints, initialEnergyPoints());
 	this->attackDamage = std::min(other.attackDamage, initialAttackDamage());
@@ -70,7 +70,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "~ScavTrap()" << std::endl; 
+	std::cout << "~ScavTrap()" << std::endl;
 }
 
 

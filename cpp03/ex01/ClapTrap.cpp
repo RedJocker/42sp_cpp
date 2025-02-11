@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/06 02:16:37 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/07 23:55:12 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/11 18:50:28 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -46,21 +46,21 @@ ClapTrap::ClapTrap(std::string name)
 	  energyPoints(this->initialEnergyPoints()),
 	  attackDamage(this->initialAttackDamage())
 {
-	std::cout << "ClapTrap(std::string name)" << std::endl;
+	std::cout << "ClapTrap(" <<  name << ")" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
-	std::cout << "ClapTrap(const ClapTrap &other)" << std::endl;
+	std::cout << "ClapTrap(const ClapTrap &other[" <<  other.name << "])" << std::endl;
 	*this = other;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
-	std::cout << "operator=(const ClapTrap &other)" << std::endl;
+	std::cout << "operator=(const ClapTrap &other[" <<  other.name << "])" << std::endl;
 	if (this == &other)
 		return *this;
-	this->name = other.name + " clap_copy";
+	this->name = other.name + "_clap_copy";
 	this->hitPoints = std::min(other.hitPoints, initialHitPoints());
 	this->energyPoints = std::min(other.energyPoints, initialEnergyPoints());
 	this->attackDamage = std::min(other.attackDamage, initialAttackDamage());
