@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/07 22:28:26 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/07 23:07:45 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/11 19:07:52 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -51,6 +51,7 @@ public:
 	ScavTrap &operator=(const ScavTrap &other);
 	~ScavTrap();
 	virtual void attack(const std::string& target);
+	void guardGate(void);
 };
 
 #endif

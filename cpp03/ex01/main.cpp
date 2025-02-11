@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/11 19:00:45 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/11 20:48:33 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -23,7 +23,7 @@ int	main(void)
 	furious_scav.beRepaired(1);
 	furious_scav.takeDamage(5);
 	furious_scav.beRepaired(1);
-
+	furious_scav.guardGate();
 	{
 		ClapTrap furious_copy = furious_scav;
 		std::cout << std::endl;

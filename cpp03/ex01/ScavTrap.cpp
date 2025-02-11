@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/07 22:37:13 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/11 18:49:35 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/11 20:48:41 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -93,3 +93,11 @@ void ScavTrap::attack(const std::string& target)
 	}
 }
 
+void ScavTrap::guardGate(void)
+{
+	if (this->alive()) {
+		this->announce();
+		std::cout << " is now on in Gate keeper mode"
+				  << std::endl << std::endl;
+	}
+}
