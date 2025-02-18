@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/17 17:50:30 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/17 19:55:16 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/18 14:54:11 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -48,5 +48,5 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-	std::cout << this->getType() << " makes sound" << std::endl; 	
+	std::cout << this->getType() << " makes animal sound" << std::endl; 	
 }

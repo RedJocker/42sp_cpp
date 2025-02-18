@@ -6,13 +6,15 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/02/17 18:12:10 by maurodri         ###   ########.fr        #
+#    Updated: 2025/02/18 14:53:14 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 MANDATORY_DIR := ./
 
-FILES := Animal.cpp \
+FILES := WrongAnimal.cpp \
+	WrongCat.cpp \
+	Animal.cpp \
 	Cat.cpp \
 	Dog.cpp \
 	main.cpp

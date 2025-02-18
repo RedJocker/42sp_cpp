@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/17 17:59:46 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/17 19:53:59 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/18 14:55:05 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -39,5 +39,5 @@ Cat::~Cat()
 
 void Cat::makeSound() const
 {
-	std::cout << this->getType() << " makes sound" << std::endl;
+	std::cout << this->getType() << " makes cat sound" << std::endl;
 }

@@ -1,40 +1,40 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   Dog.cpp                                            :+:      :+:    :+:   //
+//   WrongCat.cpp                                            :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/17 17:59:46 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/18 14:55:27 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/18 16:11:08 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 #include <iostream>
 
-Dog::Dog() : Animal("Dog")
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	
 }
 
-Dog::Dog(const Dog &other)
-{
+WrongCat::WrongCat(const WrongCat &other)
+{	
 	*this = other;
 }
 
-Dog &Dog::operator=(const Dog &other)
+WrongCat &WrongCat::operator=(const WrongCat &other)
 {
 	if (this == &other)
 		return *this;
 	return *this;
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
 }
 
-void Dog::makeSound() const
+
+void WrongCat::makeSound() const
 {
-	std::cout << this->getType() << " makes dog sound" << std::endl;
+	std::cout << this->getType() << " makes cat sound" << std::endl;
 }
