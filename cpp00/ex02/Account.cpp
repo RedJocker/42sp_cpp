@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/01/17 16:22:54 by maurodri          #+#    #+#             //
-//   Updated: 2025/01/25 15:05:22 by maurodri         ###   ########.fr       //
+//   Updated: 2025/02/18 16:29:47 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -24,7 +24,7 @@ void	Account::_displayTimestamp(void)
 	const size_t SIZE = 25;
 	char time_str[SIZE];
 	
-	std::time_t result = std::time(nullptr);
+	std::time_t result = std::time(NULL);
 	std::strftime(time_str, SIZE, "[%Y%m%d_%H%M%S]", std::localtime(&result));
 	std::cout << time_str;
 }
