@@ -1,12 +1,12 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   WrongCat.hpp                                            :+:      :+:    :+:   //
+//   WrongCat.hpp                                       :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
-//   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
+//   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2025/02/17 17:56:49 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/18 16:05:52 by maurodri         ###   ########.fr       //
+//   Created: 2025/03/12 17:14:15 by maurodri          #+#    #+#             //
+//   Updated: 2025/03/12 17:39:48 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -18,8 +18,6 @@
 class WrongCat : public WrongAnimal
 {
 
-	
-
 public:
 
 	WrongCat();
@@ -28,6 +26,5 @@ public:
 	~WrongCat();
 	void makeSound() const;
 };
-
 
 #endif

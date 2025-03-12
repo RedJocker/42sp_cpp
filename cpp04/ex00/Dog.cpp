@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/17 17:59:46 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/18 14:55:27 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/12 16:52:38 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -15,12 +15,12 @@
 
 Dog::Dog() : Animal("Dog")
 {
-	
+	std::cout << "Dog::Dog() : Animal(\"Dog\")" << std::endl;
 }
 
-Dog::Dog(const Dog &other)
+Dog::Dog(const Dog &other) : Animal(other.getType())
 {
-	*this = other;
+	std::cout << "Dog::Dog(const Dog &other) : Animal(other.type)" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &other)
@@ -32,6 +32,7 @@ Dog &Dog::operator=(const Dog &other)
 
 Dog::~Dog()
 {
+	std::cout << "Dog::~Dog()" << std::endl;
 }
 
 void Dog::makeSound() const

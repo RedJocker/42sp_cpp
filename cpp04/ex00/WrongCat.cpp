@@ -1,24 +1,27 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   WrongCat.cpp                                            :+:      :+:    :+:   //
+//   WrongCat.cpp                                       :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
-//   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
+//   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2025/02/17 17:59:46 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/18 16:11:08 by maurodri         ###   ########.fr       //
+//   Created: 2025/03/12 16:32:50 by maurodri          #+#    #+#             //
+//   Updated: 2025/03/12 17:39:32 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 #include <iostream>
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
+	std::cout << "WrongCat::WrongCat() : WrongAnimal(\"WrongCat\")"
+			  << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &other)
-{	
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other.type)
+{
 	*this = other;
 }
 
@@ -31,8 +34,8 @@ WrongCat &WrongCat::operator=(const WrongCat &other)
 
 WrongCat::~WrongCat()
 {
+	std::cout << "WrongCat::~WrongCat()" << std::endl;
 }
-
 
 void WrongCat::makeSound() const
 {

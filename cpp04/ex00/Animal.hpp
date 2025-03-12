@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/17 17:42:25 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/17 18:13:22 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/12 16:52:22 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -21,10 +21,9 @@
 
 class Animal
 {
-
+	std::string type;
 protected:
 
-	std::string type;
 	Animal(const std::string type);
 
 public:
