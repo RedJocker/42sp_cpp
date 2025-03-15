@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/02/07 22:44:14 by maurodri         ###   ########.fr        #
+     Updated: 2025/03/14 21:00:03 by maurodri         ###   ########.fr         
 #                                                                              #
 #******************************************************************************#
 
@@ -21,7 +21,7 @@ OBJ_DIR := ./obj/
 MANDATORY_OBJS := $(addprefix $(OBJ_DIR), $(patsubst %.cpp, %.o, $(FILES)))
 DEP_FLAGS := -MP -MD
 VPATH := $(MANDATORY_DIR)
-CFLAGS := -g3 -std=c++98 -Wall -Wextra #-Werror
+CFLAGS := -g3 -std=c++98 -Wall -Wextra -Werror
 CC := c++
 
 NAME := trap
