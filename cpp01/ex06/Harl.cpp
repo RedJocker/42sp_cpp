@@ -59,7 +59,13 @@ void Harl::invalid(void)
 	std::cout << "[INVALID]" << std::endl
 			  << "I don't understand what you mean by this."
 			  << std::endl
+			  << "here is a list of what I understand: "
 			  << std::endl;
+	for (int i = 0; i < Harl::FUN_SIZE; i++) {
+		std::cout << "- "
+				  << this->fun_map[i].fun_name
+				  << std::endl;
+	}
 	return ;
 }
 

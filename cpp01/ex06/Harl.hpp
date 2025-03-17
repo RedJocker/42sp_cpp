@@ -27,6 +27,7 @@
 // if/else if/else. It doesn’t think twice!
 
 class Harl {
+	const static int FUN_SIZE = 4;
 	typedef void (Harl::* HarlFun)();
 
 	typedef struct HarlFunEntryStruct {
@@ -34,7 +35,7 @@ class Harl {
 		HarlFun fun;
 	} HarlFunEntry ;
 	
-	HarlFunEntry fun_map[4];
+	HarlFunEntry fun_map[FUN_SIZE];
 
 	void debug(void);
 	void info(void);
