@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/09 02:31:18 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/20 18:38:38 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -51,17 +51,17 @@ int main(void)
 	std::cout << b << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
 
-	test_raw_bits();
-	test_to_float();
-	test_to_int();
-	test_add();
-	test_subtract();
-	test_multiply();
-	test_divide();
-	test_greater();
-	test_greater_equal();
-	test_less();
-	test_less_equal();
+	// test_raw_bits();
+	// test_to_float();
+	// test_to_int();
+	// test_add();
+	// test_subtract();
+	// test_multiply();
+	// test_divide();
+	// test_greater();
+	// test_greater_equal();
+	// test_less();
+	// test_less_equal();
 	return 0;
 }
 

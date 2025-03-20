@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/05 22:32:50 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/20 18:46:00 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -25,8 +25,16 @@ void test_triangle(void);
 void assert_triangle(
 	Point const &a, Point const &b, Point const &c, Point const &p, bool expect);
 
+// online calculator: is point in triangle?
+// https://planetcalc.com/8108/
 int main(void)
 {
+	std::cout << bsp(
+		Point(1, 7),
+		Point(11, 1),
+		Point(2, 20),
+		Point(7, 6)
+	);
 	test_triangle();
 	test_inside();
 	test_slope();

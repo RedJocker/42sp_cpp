@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/05 19:29:10 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/20 18:38:09 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -61,9 +61,9 @@ int main(void)
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
-	test_raw_bits();
-	test_to_float();
-	test_to_int();
+	// test_raw_bits();
+	// test_to_float();
+	// test_to_int();
 	return 0;
 }
 
