@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/06 01:54:34 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/06 19:32:14 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 19:01:22 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -51,7 +51,7 @@ class ClapTrap
 	
 	const static int INITIAL_HIT_POINTS = 10;
 	const static int INITIAL_ENERGY_POINTS = 10;
-	const static int INITIAL_ATTACK_DAMAGE = 10;
+	const static int INITIAL_ATTACK_DAMAGE = 0;
 public:
 	ClapTrap();
 	ClapTrap(std::string name);

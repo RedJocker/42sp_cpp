@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/06 02:16:37 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/11 18:50:28 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 19:02:32 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -28,7 +28,7 @@ inline int ClapTrap::initialEnergyPoints()
 inline int ClapTrap::initialAttackDamage()
 {
 	//std::cout << "ClapTrap::initialAttackDamage()" << std::endl; 
-	return 10;
+	return 0;
 }
 
 ClapTrap::ClapTrap()
