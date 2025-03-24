@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/03/23 23:18:00 by maurodri          #+#    #+#             //
-//   Updated: 2025/03/24 02:06:53 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 11:17:59 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -30,6 +30,8 @@ Character::Character(std::string name) : name(name)
 Character::Character(const Character &other)
 {
 	std::cout << "Character::Character(const Character &other)" << std::endl;
+	for (int i = 0; i < 4; ++i)
+		this->inventory[i] = NULL;
 	*this = other;
 }
 
@@ -43,7 +45,10 @@ Character &Character::operator=(const Character &other)
 	{
 		if (this->inventory[i] != NULL)
 			delete this->inventory[i];
-		this->inventory[i] = other.inventory[i]->clone();
+		if (other.inventory[i] != NULL)
+			this->inventory[i] = other.inventory[i]->clone();
+		else
+			this->inventory[i] = NULL;
 	}
 	return *this;
 }

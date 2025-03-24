@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/03/23 23:09:03 by maurodri          #+#    #+#             //
-//   Updated: 2025/03/24 02:08:16 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 12:00:39 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -24,6 +24,8 @@ MateriaSource::MateriaSource(const MateriaSource &other)
 {
 	std::cout << "MateriaSource::MateriaSource(const MateriaSource &other)"
 			  << std::endl;
+	for (int i = 0; i < 4; ++i)
+		this->templates[i] = NULL;
 	*this = other;
 }
 
@@ -38,7 +40,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 	{
 		if (this->templates[i] != NULL)
 			delete this->templates[i];
-		this->templates[i] = other.templates[i]->clone();
+		if (other.templates[i] != NULL)
+			this->templates[i] = other.templates[i]->clone();
+		else
+			this->templates[i] = NULL;
 	}
 	return *this;
 }
@@ -60,9 +65,10 @@ void MateriaSource::learnMateria(AMateria *m)
 		if (this->templates[i] == NULL)
 		{
 			this->templates[i] = m;
-			break ;
+			return ;
 		}
 	}
+	delete m;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)
