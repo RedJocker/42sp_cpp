@@ -6,23 +6,27 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/03/20 18:35:02 by maurodri         ###   ########.fr        #
+#    Updated: 2025/03/23 23:55:27 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 MANDATORY_DIR := ./
 
-FILES := main.cpp
-
+FILES := AMateria.cpp \
+	Character.cpp \
+	Cure.cpp \
+	Ice.cpp \
+	main.cpp \
+	MateriaSource.cpp
 
 OBJ_DIR := ./obj/
 MANDATORY_OBJS := $(addprefix $(OBJ_DIR), $(patsubst %.cpp, %.o, $(FILES)))
 DEP_FLAGS := -MP -MD
 VPATH := $(MANDATORY_DIR)
-CFLAGS := -g3 -std=c++98 -Wall -Wextra -Werror
+CFLAGS := -g3 -std=c++98 -Wall -Wextra #-Werror
 CC := c++
 
-NAME := animals
+NAME := rpg
 INCLUDES := -I $(MANDATORY_DIR)
 OBJS := $(MANDATORY_OBJS)
 ETAGS_BASE := $(MANDATORY_DIR)
