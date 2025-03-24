@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/17 17:27:18 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 19:15:47 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -28,6 +28,8 @@ int	main(void)
 	furious_frag.highFivesGuys();
 	furious_frag.guardGate();
 	furious_frag.whoAmI();
+
+	std::cout << "==A==" << std::endl << std::endl;
 	{
 		ClapTrap furious_copy = furious_frag;
 		std::cout << std::endl;
@@ -40,8 +42,8 @@ int	main(void)
 		furious_frag.beRepaired(1);
 		furious_frag.takeDamage(5);
 	}
-	std::cout << "==A==" << std::endl << std::endl;
 
+	std::cout << "==B==" << std::endl << std::endl;
 	{
 		ScavTrap furious_copy = furious_frag;
 		std::cout << std::endl;
@@ -50,8 +52,8 @@ int	main(void)
 		furious_copy.takeDamage(1);
 		furious_copy.beRepaired(10);
 	}
-	std::cout << "==B==" << std::endl << std::endl;
 
+	std::cout << "==C==" << std::endl << std::endl;
 	{
 		FragTrap furious_copy = furious_frag;
 		std::cout << std::endl;
@@ -64,8 +66,8 @@ int	main(void)
 		furious_frag.beRepaired(1);
 		furious_frag.takeDamage(5);
 	}
-	std::cout << "==C==" << std::endl << std::endl;
 
+	std::cout << "==D==" << std::endl << std::endl;
 	{
 		DiamondTrap furious_copy = furious_frag;
 		std::cout << std::endl;

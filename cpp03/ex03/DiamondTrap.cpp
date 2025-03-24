@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/17 15:44:00 by maurodri          #+#    #+#             //
-//   Updated: 2025/02/17 17:25:49 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 19:17:32 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -84,15 +84,7 @@ void DiamondTrap::announce() const
 
 void DiamondTrap::attack(const std::string& target)
 {
-	if (this->alive() && this->active()) {
-		this->energyPoints--;
-		this->announce();
-		std::cout << " attacks " << target
-				  << ", causing " << this->attackDamage
-				  << " points of damage!"
-				  << " Remaining " << this->energyPoints << " energy points."
-				  << std::endl << std::endl;
-	}
+	this->ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI(void)
