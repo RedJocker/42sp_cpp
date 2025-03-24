@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/03/23 23:09:03 by maurodri          #+#    #+#             //
-//   Updated: 2025/03/24 00:06:18 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 02:08:16 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -16,6 +16,8 @@
 MateriaSource::MateriaSource()
 {
 	std::cout << "MateriaSource::MateriaSource()" << std::endl;
+	for (int i = 0; i < 4; ++i)
+		this->templates[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other)
@@ -32,20 +34,44 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 		<< std::endl;
 	if (this == &other)
 		return *this;
-	// make deep copy implementation
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->templates[i] != NULL)
+			delete this->templates[i];
+		this->templates[i] = other.templates[i]->clone();
+	}
 	return *this;
 }
 
 MateriaSource::~MateriaSource()
 {
 	std::cout << "MateriaSource::~MateriaSource()" << std::endl;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (this->templates[i] != NULL)
+			delete this->templates[i];
+	}
 }
 
-void MateriaSource::learnMateria(AMateria *)
+void MateriaSource::learnMateria(AMateria *m)
 {
-	return ;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (this->templates[i] == NULL)
+		{
+			this->templates[i] = m;
+			break ;
+		}
+	}
 }
+
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
-	return NULL;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (this->templates[i] != NULL
+				&& this->templates[i]->getType() == type)
+			return this->templates[i]->clone();
+	}
+	return 0;
 }

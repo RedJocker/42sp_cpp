@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/03/23 23:18:00 by maurodri          #+#    #+#             //
-//   Updated: 2025/03/24 00:01:43 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 02:06:53 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -16,11 +16,15 @@
 Character::Character()
 {
 	std::cout << "Character::Character()" << std::endl;
+	for (int i = 0; i < 4; ++i)
+		this->inventory[i] = NULL;
 }
 
 Character::Character(std::string name) : name(name)
 {
-	
+	std::cout << "Character::Character(" << name << ")" << std::endl;
+	for (int i = 0; i < 4; ++i)
+		this->inventory[i] = NULL;
 }
 
 Character::Character(const Character &other)
@@ -35,28 +39,51 @@ Character &Character::operator=(const Character &other)
 			  << std::endl;
 	if (this == &other)
 		return *this;
-	// make deep copy implementation
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->inventory[i] != NULL)
+			delete this->inventory[i];
+		this->inventory[i] = other.inventory[i]->clone();
+	}
 	return *this;
 }
 
 Character::~Character()
 {
 	std::cout << "Character::~Character()" << std::endl;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (this->inventory[i] != NULL)
+			delete this->inventory[i];
+	}
 }
 
 std::string const &Character::getName() const
 {
-	return "TODO";
+	return this->name;
 }
+
 void Character::equip(AMateria *m)
 {
-	return ;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (this->inventory[i] == NULL)
+		{
+			this->inventory[i] = m;
+			return ;
+		}
+	}
+	delete m;
 }
+
 void Character::unequip(int idx)
 {
-	return ;
+	if (idx >= 0 && idx < 4)
+		this->inventory[idx] = NULL;
 }
+
 void Character::use(int idx, ICharacter &target)
 {
-	return ;
+	if (idx >= 0 && idx < 4 && this->inventory[idx] != NULL)
+		this->inventory[idx]->use(target);
 }

@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/03/23 23:07:49 by maurodri          #+#    #+#             //
-//   Updated: 2025/03/24 00:06:19 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 02:00:09 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -18,7 +18,7 @@
 
 class MateriaSource : public IMateriaSource
 {
-	AMateria *templates[4] = {0};
+	AMateria *templates[4];
 
 public:
 

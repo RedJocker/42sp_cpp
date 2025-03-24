@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/03/23 23:16:46 by maurodri          #+#    #+#             //
-//   Updated: 2025/03/24 00:06:12 by maurodri         ###   ########.fr       //
+//   Updated: 2025/03/24 01:53:11 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -39,7 +39,7 @@
 class Character : public ICharacter
 {
 	std::string name;
-	AMateria *inventory[4] = {0};
+	AMateria *inventory[4];
 
 public:
 
