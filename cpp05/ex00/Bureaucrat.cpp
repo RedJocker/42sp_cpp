@@ -6,13 +6,18 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/05 17:36:25 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/05 17:57:18 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/05 18:21:45 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : name("invalid"), grade(-1)
+{
+	this->assertBound();
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
 	this->assertBound();
 }
@@ -57,12 +62,19 @@ void Bureaucrat::decrement()
 	this->assertBound();
 }
 
-void Bureaucrat::assertBound() const
+void Bureaucrat::assertBound()
 {
 	if (this->grade < 1)
+	{
+		this->grade = 1;
 		throw GradeTooHighException();
+	}
+
 	if (this->grade > 150)
+	{
+		this->grade = 150;
 		throw GradeTooLowException();
+	}
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()

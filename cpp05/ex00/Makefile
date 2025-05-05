@@ -6,13 +6,14 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/05/05 17:13:48 by maurodri         ###   ########.fr        #
+#    Updated: 2025/05/05 18:18:08 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 MANDATORY_DIR := ./
 
-FILES := main.cpp
+FILES := main.cpp \
+	Bureaucrat.cpp
 
 
 OBJ_DIR := ./obj/

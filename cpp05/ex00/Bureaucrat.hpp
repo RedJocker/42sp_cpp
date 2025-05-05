@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/05 17:14:47 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/05 17:57:22 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/05 18:22:05 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -38,11 +38,12 @@ class Bureaucrat
 	const std::string name;
 	int grade;
 
-	void assertBound() const;
+	void assertBound();
 public:
 
 	Bureaucrat();
 	Bureaucrat(const Bureaucrat &other);
+	Bureaucrat(std::string name, int grade);
 	virtual Bureaucrat &operator=(const Bureaucrat &other);
 	virtual ~Bureaucrat();
 
