@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/05 17:36:25 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/05 18:21:45 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/06 16:22:09 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 	this->assertBound();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name + "Copy"), grade(other.grade)
 {
 	this->assertBound();
 }

@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/05 18:25:41 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/06 16:23:41 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -45,6 +45,10 @@ int	main(void)
 		std::cout << exception.what() << std::endl;
 	}
 	std::cout << mrYes << std::endl;
-	
+
+	Bureaucrat mrYesCopy = mrYes;
+	std::cout << mrYesCopy << std::endl;
+	mrYesCopy = mrYes;
+	std::cout << mrYesCopy << std::endl;
 	return 0;
 }
