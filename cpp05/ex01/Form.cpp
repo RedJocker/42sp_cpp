@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/06 16:37:59 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/06 17:13:30 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/08 14:30:37 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -14,20 +14,27 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Form::Form() : name("invalid"), grade(-1)
+Form::Form() : name("invalid"), gradeToSign(-1), gradeToExecute(-1)
 {
-	this->assertBound();
+	assertBound(this->gradeToSign);
+	assertBound(this->gradeToExecute);
 }
 
-Form::Form(std::string name, int grade) : name(name), isSigned(false), grade(grade)
+Form::Form(std::string name, int gradeToSign, int gradeToExecute)
+    : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
-	this->assertBound();
+	assertBound(this->gradeToSign);
+	assertBound(this->gradeToExecute);
 }
 
 Form::Form(const Form &other)
-    : name(other.name + "Copy"), isSigned(other.isSigned), grade(other.grade)
+    : name(other.name + "Copy"),
+      isSigned(other.isSigned),
+      gradeToSign(other.gradeToSign),
+      gradeToExecute(other.gradeToExecute)
 {
-	this->assertBound();
+	assertBound(this->gradeToSign);
+	assertBound(this->gradeToExecute);
 }
 
 Form &Form::operator=(const Form &other)
@@ -35,7 +42,8 @@ Form &Form::operator=(const Form &other)
 	if (this == &other)
 		return *this;
 	this->isSigned = other.isSigned;
-	this->assertBound();
+	this->assertBound(other.gradeToSign);
+	this->assertBound(other.gradeToExecute);
 	return *this;
 }
 
@@ -48,9 +56,9 @@ std::string Form::getName() const
 	return this->name;
 }
 
-int Form::getGrade() const
+int Form::getGradeToSign() const
 {
-	return this->grade;
+	return this->gradeToSign;
 }
 
 bool Form::getIsSigned() const
@@ -58,14 +66,20 @@ bool Form::getIsSigned() const
 	return this->isSigned;
 }
 
-void Form::assertBound()
+int Form::getGradeToExecute() const
 {
-	if (this->grade < 1)
+	return this->gradeToExecute;
+}
+
+
+void Form::assertBound(int grade)
+{
+	if (grade < 1)
 	{
 		throw GradeTooHighException();
 	}
 
-	if (this->grade > 150)
+	if (grade > 150)
 	{
 		throw GradeTooLowException();
 	}
@@ -83,7 +97,7 @@ const char *Form::GradeTooLowException::what() const throw()
 
 void Form::beSigned(Bureaucrat &bureacrat)
 {
-	if (bureacrat.getGrade() > this->getGrade())
+	if (bureacrat.getGrade() > this->getGradeToSign())
 		throw GradeTooLowException();
 	this->isSigned = true;
 }
@@ -92,8 +106,10 @@ std::ostream &operator<<(std::ostream &os, const Form &form)
 {
 	return os << "Form: "
 			  << form.getName()
-			  << ", required grade: "
-	          << form.getGrade()
 			  << ", is signed: "
-			  << form.getIsSigned();	
+			  << form.getIsSigned()
+			  << ", required grade to sign: "
+	          << form.getGradeToSign()
+			  << ", to execute: "	
+	          << form.getGradeToExecute();
 }

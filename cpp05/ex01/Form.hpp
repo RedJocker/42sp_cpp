@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/06 16:26:25 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/06 17:13:14 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/08 14:19:09 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -47,18 +47,20 @@ class Form
 {
 	const std::string name;
 	bool isSigned;
-	const int grade;
+	const int gradeToSign;
+	const int gradeToExecute;
 
-	void assertBound();
+	static void assertBound(int grade);
+	virtual Form &operator=(const Form &other);
 public:
   	Form();
-	Form(std::string name, int grade);
+	Form(std::string name, int gradeToSign, int gradeToExecute);
 	Form(const Form &other);
-	virtual Form &operator=(const Form &other);
 	virtual ~Form();
-	
+
 	std::string getName() const;
-	int getGrade() const;
+	int getGradeToSign() const;
+	int getGradeToExecute() const;
 	bool getIsSigned() const;
 	void beSigned(Bureaucrat &bureacrat);
 
