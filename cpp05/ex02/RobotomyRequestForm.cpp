@@ -6,12 +6,14 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/08 15:47:00 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/09 15:44:01 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 20:17:34 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm(): AForm()
 {
@@ -47,5 +49,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	this->AForm::execute(executor);
-	std::cout << "Executing Robotomy" << std::endl;
+	std::cout << "...(some drilling noises)..." << std::endl;
+	std::srand(std::time(0));
+
+	if ((std::rand() % 2) == 0) {
+		std::cout << getTarget()
+				  << " has been robotomized successfull"
+				  << std::endl;
+	} else {
+		std::cout << "unfortunatelly robotomization failed" << std::endl;
+	}
 }
