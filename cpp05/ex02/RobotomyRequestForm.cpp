@@ -1,29 +1,29 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   //
+//   RobotomyRequestForm.cpp                          :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/08 15:47:00 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/09 15:28:54 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 15:44:01 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <iostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm()
+RobotomyRequestForm::RobotomyRequestForm(): AForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	: AForm("Shrubbery Creation Form", 145, 137, target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+	: AForm("Robotomy Request Form", 72, 45, target)
 {
 }
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(
-	const ShrubberyCreationForm &other)
+RobotomyRequestForm &RobotomyRequestForm::operator=(
+	const RobotomyRequestForm &other)
 {
 	if (this == &other)
 		return *this;
@@ -32,7 +32,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(
 	return *this;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
 	: AForm(other.getName(),
 			other.getGradeToSign(),
 			other.getGradeToExecute(),
@@ -40,12 +40,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 {
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	this->AForm::execute(executor);
-	std::cout << "Executing Shrubbs" << std::endl;
+	std::cout << "Executing Robotomy" << std::endl;
 }

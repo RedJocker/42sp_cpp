@@ -6,7 +6,7 @@
 //	 By: maurodri <maurodri@student.42sp...>		+#+	 +:+	   +#+		  //
 //												  +#+#+#+#+#+	+#+			  //
 //	 Created: 2025/05/08 14:32:40 by maurodri		   #+#	  #+#			  //
-//   Updated: 2025/05/09 15:09:39 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 15:28:10 by maurodri         ###   ########.fr       //
 //																			  //
 // ************************************************************************** //
 
@@ -78,7 +78,7 @@ public:
 	int getGradeToExecute() const;
 	bool getIsSigned() const;
 	void beSigned(Bureaucrat &bureacrat);
-	virtual void execute(Bureaucrat const & executor) = 0;
+	virtual void execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighException : public std::exception {
 	public:

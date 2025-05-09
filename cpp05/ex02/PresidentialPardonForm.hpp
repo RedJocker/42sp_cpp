@@ -1,12 +1,12 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   //
+//   PresidentialPardonForm.hpp                         :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
-//   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
+//   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2025/05/08 14:39:34 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/09 15:28:43 by maurodri         ###   ########.fr       //
+//   Created: 2025/05/09 15:49:00 by maurodri          #+#    #+#             //
+//   Updated: 2025/05/09 15:49:02 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -16,17 +16,17 @@
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 
-	virtual ShrubberyCreationForm &operator=(
-		const ShrubberyCreationForm &other);
+	virtual PresidentialPardonForm &operator=(
+		const PresidentialPardonForm &other);
 
 public:
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(std::string target);
-	ShrubberyCreationForm(const ShrubberyCreationForm &other);
-	virtual ~ShrubberyCreationForm();
+	PresidentialPardonForm();
+	PresidentialPardonForm(std::string target);
+	PresidentialPardonForm(const PresidentialPardonForm &other);
+	virtual ~PresidentialPardonForm();
 	virtual void execute(Bureaucrat const & executor) const;
 };
 

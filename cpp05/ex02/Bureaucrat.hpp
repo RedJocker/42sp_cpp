@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/05 17:14:47 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/08 16:04:18 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 15:24:27 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -22,17 +22,22 @@ class AForm;
 /**
  * A Bureaucrat must have:
  * • A constant name.
- * • And a grade that ranges from 1 (highest possible grade) to 150 (lowest possible
- * grade).
- * Any attempt to instantiate a Bureaucrat using an invalid grade must throw an ex-
- * ception:
- * either a Bureaucrat::GradeTooHighException or a Bureaucrat::GradeTooLowException.
- * You will provide getters for both these attributes: getName() and getGrade(). Im-
- * plement also two member functions to increment or decrement the bureaucrat grade. If
- * the grade is out of range, both of them will throw the same exceptions as the constructor.
+ * • And a grade that ranges from 1 (highest possible grade)
+ * to 150 (lowest possible grade).
+ * Any attempt to instantiate a Bureaucrat using an
+ * invalid grade must throw an exception:
+ * either a Bureaucrat::GradeTooHighException or a
+ * Bureaucrat::GradeTooLowException.
+ * You will provide getters for both these attributes:
+ * getName() and getGrade().
+ * Implement also two member functions to increment
+ * or decrement the bureaucrat grade.
+ * If the grade is out of range,
+ * both of them will throw the same exceptions as the constructor.
  * The thrown exceptions must be catchable using try and catch blocks.
- * You will implement an overload of the insertion («) operator to print something like:
- *     ```<name>, bureaucrat grade <grade>.``` 
+ * You will implement an overload of
+ * the insertion («) operator to print something like:
+ *     ```<name>, bureaucrat grade <grade>.```
  * (without the angle brackets):
  */
 class Bureaucrat
@@ -54,7 +59,8 @@ public:
 	void increment();
 	void decrement();
 	void signForm(AForm &form);
-	
+	void executeForm(AForm const &form);
+
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char *what() const throw();
@@ -62,7 +68,7 @@ public:
 
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char *what() const throw();	
+		virtual const char *what() const throw();
 	};
 };
 

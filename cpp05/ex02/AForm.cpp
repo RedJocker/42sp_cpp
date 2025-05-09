@@ -6,7 +6,7 @@
 //	 By: maurodri <maurodri@student.42sp...>		+#+	 +:+	   +#+		  //
 //												  +#+#+#+#+#+	+#+			  //
 //	 Created: 2025/05/08 14:32:22 by maurodri		   #+#	  #+#			  //
-//   Updated: 2025/05/09 15:01:03 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 15:35:06 by maurodri         ###   ########.fr       //
 //																			  //
 // ************************************************************************** //
 
@@ -97,7 +97,7 @@ void AForm::assertBound(int grade)
 	}
 }
 
-void AForm::execute(Bureaucrat const &executor)
+void AForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getIsSigned())
 		throw AForm::UnsignedFormException();
