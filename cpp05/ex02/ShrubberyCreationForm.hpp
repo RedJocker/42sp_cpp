@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/08 14:39:34 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/08 14:45:52 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 15:09:41 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -14,19 +14,20 @@
 # define SHRUBBERY_CREATION_FORM_HPP
 
 # include "AForm.hpp"
+# include "Bureaucrat.hpp"
 
-class ShrubberyCreationForm : AForm
+class ShrubberyCreationForm : public AForm
 {
 
-	virtual ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
-	ShrubberyCreationForm();
-	
-public:
+	virtual ShrubberyCreationForm &operator=(
+		const ShrubberyCreationForm &other);
 
-	ShrubberyCreationForm(std::string target);
+public:
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(std::string	 target);
 	ShrubberyCreationForm(const ShrubberyCreationForm &other);
 	virtual ~ShrubberyCreationForm();
-	virtual void executeTask();
+	virtual void execute(Bureaucrat const & executor);
 };
 
 

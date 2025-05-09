@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/05 17:36:25 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/08 16:03:44 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 14:35:49 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -88,7 +88,7 @@ void Bureaucrat::signForm(AForm &form)
 		          << " signed "
 				  << form.getName()
 				  << std::endl;
-	} catch (AForm::GradeTooLowException exception)
+	} catch (AForm::GradeTooLowException &exception)
 	{
 		std::cout << this->name
 		          << " couldn't sign "

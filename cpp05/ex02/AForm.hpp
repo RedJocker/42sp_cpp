@@ -1,13 +1,13 @@
 // ************************************************************************** //
-//                                                                            //
-//                                                        :::      ::::::::   //
-//   AForm.hpp                                          :+:      :+:    :+:   //
-//                                                    +:+ +:+         +:+     //
-//   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
-//                                                +#+#+#+#+#+   +#+           //
-//   Created: 2025/05/08 14:32:40 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/08 16:00:04 by maurodri         ###   ########.fr       //
-//                                                                            //
+//																			  //
+//														  :::	   ::::::::	  //
+//	 AForm.hpp											:+:		 :+:	:+:	  //
+//													  +:+ +:+		  +:+	  //
+//	 By: maurodri <maurodri@student.42sp...>		+#+	 +:+	   +#+		  //
+//												  +#+#+#+#+#+	+#+			  //
+//	 Created: 2025/05/08 14:32:40 by maurodri		   #+#	  #+#			  //
+//   Updated: 2025/05/09 15:09:39 by maurodri         ###   ########.fr       //
+//																			  //
 // ************************************************************************** //
 
 
@@ -20,7 +20,8 @@
 class Bureaucrat;
 
 /**
- * Now that you have bureaucrats, let’s give them something to do. What better activity
+ * Now that you have bureaucrats,
+ * let’s give them something to do. What better activity
  * could there be than the one of filling out a stack of forms?
  * Then, let’s make a Form class. It has:
  * • A constant name.
@@ -28,17 +29,21 @@ class Bureaucrat;
  * • A constant grade required to sign it.
  * • And a constant grade required to execute it.
  * All these attributes are private, not protected.
- * The grades of the Form follow the same rules that apply to the Bureaucrat. Thus,
- * the following exceptions will be thrown if a form grade is out of bounds:
+ * The grades of the Form follow the same rules that apply to the Bureaucrat.
+ * Thus, the following exceptions will be thrown if
+ * a form grade is out of bounds:
  * Form::GradeTooHighException and Form::GradeTooLowException.
- * Same as before, write getters for all attributes and an overload of the insertion («)
- * operator that prints all the form’s informations.
- * 
+ * Same as before, write getters for all attributes and an overload
+ * of the insertion («) operator that prints all the form’s informations.
+ *
  * Add also a beSigned() member function to the Form that takes a Bureaucrat as
- * parameter. It changes the form status to signed if the bureaucrat’s grade is high enough
- * (higher or egal to the required one). Remember, grade 1 is higher than grade 2.
+ * parameter.
+ * It changes the form status to signed if the bureaucrat’s grade is high enough
+ * (higher or egal to the required one).
+ * Remember, grade 1 is higher than grade 2.
  * If the grade is too low, throw a Form::GradeTooLowException.
- * Lastly, add a signForm() member function to the Bureaucrat. If the form got signed,
+ * Lastly, add a signForm() member function to the Bureaucrat.
+ * If the form got signed,
  * it will print something like:
  * <bureaucrat> signed <form>
  * Otherwise, it will print something like:
@@ -57,12 +62,12 @@ class AForm
 
 protected:
 	static void assertBound(int grade);
-	
+
 public:
-  	AForm();
+	AForm();
 	AForm(std::string name,
-	      int gradeToSign,
-	      int gradeToExecute,
+		  int gradeToSign,
+		  int gradeToExecute,
 		  std::string target);
 	AForm(const AForm &other);
 	virtual ~AForm();
@@ -73,8 +78,8 @@ public:
 	int getGradeToExecute() const;
 	bool getIsSigned() const;
 	void beSigned(Bureaucrat &bureacrat);
-	virtual void executeTask() = 0;
-	
+	virtual void execute(Bureaucrat const & executor) = 0;
+
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char *what() const throw();
@@ -82,7 +87,12 @@ public:
 
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char *what() const throw();	
+		virtual const char *what() const throw();
+	};
+
+	class UnsignedFormException : public std::exception {
+	public:
+		virtual const char *what() const throw();
 	};
 };
 
