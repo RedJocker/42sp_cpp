@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/09 15:49:13 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/09 15:50:09 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 20:20:28 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -48,5 +48,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	this->AForm::execute(executor);
-	std::cout << "Executing Presidential Pardon" << std::endl;
+	std::cout << getTarget()
+			  << " has been pardoned by Zaphod Beeblebrox."
+			  << std::endl;
 }
