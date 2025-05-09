@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/08 14:39:34 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/09 15:28:43 by maurodri         ###   ########.fr       //
+//   Updated: 2025/05/09 17:33:17 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -27,7 +27,11 @@ public:
 	ShrubberyCreationForm(std::string target);
 	ShrubberyCreationForm(const ShrubberyCreationForm &other);
 	virtual ~ShrubberyCreationForm();
-	virtual void execute(Bureaucrat const & executor) const;
+	virtual void execute(Bureaucrat const &executor) const;
+	class FileOpenException : public std::exception {
+	public:
+		virtual const char *what() const throw();
+	};
 };
 
 
