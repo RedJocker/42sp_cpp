@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/08 15:47:00 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/09 20:17:34 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/01 17:12:21 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -57,6 +57,10 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 				  << " has been robotomized successfull"
 				  << std::endl;
 	} else {
-		std::cout << "unfortunatelly robotomization failed" << std::endl;
+		std::cout
+		    << "unfortunatelly robotomization failed, "
+			<< getTarget()
+			<< " is not in a good shape"
+			<< std::endl;
 	}
 }
