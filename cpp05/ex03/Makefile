@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/05/09 15:50:46 by maurodri         ###   ########.fr        #
+#    Updated: 2025/07/01 18:21:20 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -17,7 +17,8 @@ FILES := main.cpp \
 	AForm.cpp \
 	ShrubberyCreationForm.cpp \
 	RobotomyRequestForm.cpp \
-	PresidentialPardonForm.cpp
+	PresidentialPardonForm.cpp \
+	Intern.cpp
 
 
 OBJ_DIR := ./obj/
