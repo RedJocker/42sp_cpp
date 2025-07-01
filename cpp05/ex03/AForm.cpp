@@ -1,13 +1,13 @@
 // ************************************************************************** //
-//                                                                            //
-//                                                        :::      ::::::::   //
-//   AForm.cpp                                          :+:      :+:    :+:   //
-//                                                    +:+ +:+         +:+     //
-//   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
-//                                                +#+#+#+#+#+   +#+           //
-//   Created: 2025/05/08 14:32:22 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/08 18:03:39 by maurodri         ###   ########.fr       //
-//                                                                            //
+//																			  //
+//														  :::	   ::::::::	  //
+//	 AForm.cpp											:+:		 :+:	:+:	  //
+//													  +:+ +:+		  +:+	  //
+//	 By: maurodri <maurodri@student.42sp...>		+#+	 +:+	   +#+		  //
+//												  +#+#+#+#+#+	+#+			  //
+//	 Created: 2025/05/08 14:32:22 by maurodri		   #+#	  #+#			  //
+//   Updated: 2025/05/09 15:35:06 by maurodri         ###   ########.fr       //
+//																			  //
 // ************************************************************************** //
 
 #include "AForm.hpp"
@@ -20,23 +20,24 @@ AForm::AForm() : name("invalid"), gradeToSign(-1), gradeToExecute(-1)
 	assertBound(this->gradeToExecute);
 }
 
-AForm::AForm(std::string name, int gradeToSign, int gradeToExecute, std::string target)
-    : name(name),
+AForm::AForm(
+	std::string name, int gradeToSign, int gradeToExecute, std::string target)
+	: name(name),
 	  target(target),
-      isSigned(false),
-      gradeToSign(gradeToSign),
-      gradeToExecute(gradeToExecute)	  
+	  isSigned(false),
+	  gradeToSign(gradeToSign),
+	  gradeToExecute(gradeToExecute)
 {
 	assertBound(this->gradeToSign);
 	assertBound(this->gradeToExecute);
 }
 
 AForm::AForm(const AForm &other)
-    : name(other.name + "Copy"),
+	: name(other.name + "Copy"),
 	  target(other.target),
-      isSigned(other.isSigned),
-      gradeToSign(other.gradeToSign),
-      gradeToExecute(other.gradeToExecute)
+	  isSigned(other.isSigned),
+	  gradeToSign(other.gradeToSign),
+	  gradeToExecute(other.gradeToExecute)
 {
 	assertBound(this->gradeToSign);
 	assertBound(this->gradeToExecute);
@@ -96,14 +97,27 @@ void AForm::assertBound(int grade)
 	}
 }
 
+void AForm::execute(Bureaucrat const &executor) const
+{
+	if (!this->getIsSigned())
+		throw AForm::UnsignedFormException();
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+}
+
 const char *AForm::GradeTooHighException::what() const throw()
 {
 	return "Grade is too High";
 }
-	
+
 const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low";
+}
+
+const char *AForm::UnsignedFormException::what() const throw()
+{
+	return "Form is not signed";
 }
 
 void AForm::beSigned(Bureaucrat &bureacrat)
@@ -120,7 +134,7 @@ std::ostream &operator<<(std::ostream &os, const AForm &form)
 			  << ", is signed: "
 			  << form.getIsSigned()
 			  << ", required grade to sign: "
-	          << form.getGradeToSign()
-			  << ", to execute: "	
-	          << form.getGradeToExecute();
+			  << form.getGradeToSign()
+			  << ", to execute: "
+			  << form.getGradeToExecute();
 }

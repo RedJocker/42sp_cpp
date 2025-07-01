@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/05/08 14:38:27 by maurodri         ###   ########.fr        #
+#    Updated: 2025/05/09 15:50:46 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,10 @@ MANDATORY_DIR := ./
 
 FILES := main.cpp \
 	Bureaucrat.cpp \
-	AForm.cpp
+	AForm.cpp \
+	ShrubberyCreationForm.cpp \
+	RobotomyRequestForm.cpp \
+	PresidentialPardonForm.cpp
 
 
 OBJ_DIR := ./obj/
