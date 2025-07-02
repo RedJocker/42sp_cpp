@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/01 19:17:38 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/01 19:22:22 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/01 21:13:27 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -21,6 +21,9 @@ class ScalarConverter
 	ScalarConverter(const ScalarConverter &other);
 	virtual ScalarConverter &operator=(const ScalarConverter &other);
 	virtual ~ScalarConverter();
+
+	static void printChar(double *number);
+	static bool isChar(std::string &toConvert);
 
 public:
 
