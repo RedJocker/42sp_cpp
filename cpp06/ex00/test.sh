@@ -232,3 +232,33 @@ double: 12.0
 EOF
 )
 run_test_command
+#
+command="./convert -a"
+expected=$(cat <<EOF
+char: Impossible
+int: Impossible
+float: Impossible
+double: Impossible
+EOF
+)
+run_test_command
+#
+command="./convert +a"
+expected=$(cat <<EOF
+char: Impossible
+int: Impossible
+float: Impossible
+double: Impossible
+EOF
+)
+run_test_command
+#
+command="./convert abc"
+expected=$(cat <<EOF
+char: Impossible
+int: Impossible
+float: Impossible
+double: Impossible
+EOF
+)
+run_test_command
