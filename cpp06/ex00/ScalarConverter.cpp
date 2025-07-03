@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/01 19:20:10 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/02 23:46:24 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/03 00:02:26 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -53,7 +53,10 @@ std::string ScalarConverter::to_string(ImplementsStreamOperator num, int precisi
 void ScalarConverter::printChar(double *number) {
 
 	std::string value = "";
-	if (number == NULL || isNanOrInf(number))
+	if (number == NULL
+		|| isNanOrInf(number)
+		|| *number < std::numeric_limits<char>::min()
+		|| *number > std::numeric_limits<char>::max())
 	{
 		value = "Impossible";
 	}
