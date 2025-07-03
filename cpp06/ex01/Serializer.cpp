@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/01 19:20:10 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/03 02:02:47 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/03 18:37:29 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -29,7 +29,7 @@ Serializer::~Serializer(){}
 
 uintptr_t Serializer::serialize(Data* ptr) {
 	
-	return reinterpret_cast<std::uintptr_t>(ptr);
+	return reinterpret_cast<uintptr_t>(ptr);
 }
 
 Data* Serializer::deserialize(uintptr_t raw) {

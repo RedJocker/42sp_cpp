@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/01 19:17:38 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/03 01:58:52 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/03 18:37:30 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -14,6 +14,7 @@
 # define SERIALIZER_HPP
 
 # include <string>
+# include <stdint.h>
 
 // Chapter V
 // Exercise 01: Serialization
