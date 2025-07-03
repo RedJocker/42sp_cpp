@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/01 19:20:10 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/01 23:04:18 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/02 23:46:24 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -105,7 +105,7 @@ void ScalarConverter::printFloat(double *number, int precision)
 	else
 	{
 		float f = static_cast<float>(*number);
-		bool isInt = truncf(*number) == *number;
+		bool isInt = truncf(f) == f;
 		std::string decimal = isInt ? ".0" : "";
 		int maxPrecision = std::numeric_limits<float>::digits10 + 1;
 		int precisionNorm = std::min(precision, maxPrecision);
