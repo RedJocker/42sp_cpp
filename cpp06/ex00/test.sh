@@ -30,6 +30,10 @@ command="./convert"
 expected='Usage: converter strToConvert'
 run_test_command
 #
+command="./convert 1 2"
+expected='Usage: converter strToConvert'
+run_test_command
+#
 command="./convert 1"
 expected=$(cat <<EOF
 char: Non displayable
@@ -185,6 +189,46 @@ char: Impossible
 int: Impossible
 float: 9.876543e+09.0f
 double: 9876543210.0
+EOF
+)
+run_test_command
+#
+command="./convert 12ff"
+expected=$(cat <<EOF
+char: Impossible
+int: Impossible
+float: Impossible
+double: Impossible
+EOF
+)
+run_test_command
+#
+command="./convert a12"
+expected=$(cat <<EOF
+char: Impossible
+int: Impossible
+float: Impossible
+double: Impossible
+EOF
+)
+run_test_command
+#
+command="./convert -12"
+expected=$(cat <<EOF
+char: Non displayable
+int: -12
+float: -12.0f
+double: -12.0
+EOF
+)
+run_test_command
+#
+command="./convert +12"
+expected=$(cat <<EOF
+char: Non displayable
+int: 12
+float: 12.0f
+double: 12.0
 EOF
 )
 run_test_command

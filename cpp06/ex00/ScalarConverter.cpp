@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/01 19:20:10 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/03 00:02:26 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/03 00:14:52 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -99,7 +99,7 @@ void ScalarConverter::printFloat(double *number, int precision)
 {
 	std::string value = "";
 	if ((number == NULL
-		 || *number < std::numeric_limits<float>::min() 
+		 || *number < std::numeric_limits<float>::lowest()
 		 || *number > std::numeric_limits<float>::max())
 		&& !isNanOrInf(number))
 	{
