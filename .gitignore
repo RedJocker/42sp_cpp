@@ -30,3 +30,6 @@ trap
 animals
 bureau
 convert
+serialize
+inspect
+templates
