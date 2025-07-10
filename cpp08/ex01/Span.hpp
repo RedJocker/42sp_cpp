@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/09 23:03:07 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/09 23:40:40 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/10 00:54:42 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -28,6 +28,12 @@
 // Thus, throw an exception. Of course, you will write your own tests,
 // and they will be far more thorough than the ones below.
 // Test your Span with at least 10,000 numbers. More would be even better
+//
+// Last but not least, it would be wonderful to fill your
+// Span using a range of iterators.
+// Making thousands of calls to addNumber() is so annoying.
+// Implement a member function
+// to add multiple numbers to your Span in a single call.
 
 # include <set>
 # include <string>
@@ -44,6 +50,18 @@ public:
 	Span &operator=(const Span &other);
 	~Span();
 	void addNumber(int number);
+
+	template <typename IntForwardIterator>
+	void addNumber(IntForwardIterator begin, IntForwardIterator endExclusive)
+	{
+		for (IntForwardIterator current = begin;
+			 current != endExclusive;
+			 current++)
+		{
+			addNumber(*current);
+		}
+	}
+	
 	unsigned int shortestSpan();
 	unsigned int longestSpan();
 
