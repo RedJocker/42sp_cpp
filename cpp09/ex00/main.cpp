@@ -6,13 +6,12 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/14 01:47:15 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/14 07:05:27 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 #include "BitcoinExchange.hpp"
 #include <iostream>
-#include <fstream>
 
 int main(int argc, char *argv[])
 {
@@ -22,19 +21,14 @@ int main(int argc, char *argv[])
 		return 11;
 	}
 
-	std::ifstream file(argv[1]);
-    if (!file.is_open()) {
-        std::cout << "Could not open " << argv[1] << std::endl;
-        return 22;
-    }
-
-	std::string line;
-    while (std::getline(file, line)) {
-        std::cout << line << std::endl;
-    }
-    file.close();
-
-	BitcoinExchange();
-	
-	return 0;
+	BitcoinExchange bitEx;
+	std::pair<int, std::string> errorDataLoad = bitEx.initExchangeHistoryMap(
+		BitcoinExchange::DEFAULT_EXCHANGE_HISTORY_FILEPATH);
+	if (errorDataLoad.first) {
+		std::cout << errorDataLoad.second;
+		return errorDataLoad.first;
+	}
+	std::pair<int, std::string> result = bitEx.report(argv[1]);
+	std::cout << result.second;
+	return result.first;
 }
