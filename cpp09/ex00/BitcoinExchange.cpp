@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/14 01:41:32 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/14 07:07:45 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/14 16:06:15 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -33,6 +33,7 @@ std::pair<int, std::string>
 	std::getline(file, header);
 	if (header != "date,exchange_rate")
 	{
+		file.close();
 		output << "invalid header on " << databaseFilePath;
 		return std::make_pair(33, output.str());
 	}
@@ -112,6 +113,7 @@ std::pair<int, std::string> BitcoinExchange::report(
 	std::getline(file, header);
 	if (header != "date | value")
 	{
+		file.close();
 		output << "invalid header on " << registryFilePath << std::endl;
 		return std::make_pair(33, output.str());
 	}
