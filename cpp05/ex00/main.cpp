@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/05/06 16:23:41 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/16 17:02:01 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -15,6 +15,7 @@
 
 int	main(void)
 {
+	std::cout << std::endl << "==A==" << std::endl;
 	Bureaucrat mrYes("Mr. Yes", 18);
 
 	std::cout << mrYes << std::endl;
@@ -31,7 +32,10 @@ int	main(void)
 		std::cout << exception.what() << std::endl;
 	}
 	std::cout << mrYes << std::endl;
+	
 
+	/////
+	std::cout << std::endl << "==B==" << std::endl;
 	while (mrYes.getGrade() < 150)
 	{
 		mrYes.decrement();
@@ -46,9 +50,22 @@ int	main(void)
 	}
 	std::cout << mrYes << std::endl;
 
-	Bureaucrat mrYesCopy = mrYes;
-	std::cout << mrYesCopy << std::endl;
-	mrYesCopy = mrYes;
-	std::cout << mrYesCopy << std::endl;
+	std::cout << std::endl << "==C==" << std::endl;
+
+	Bureaucrat mrYesCopyConstructor = mrYes;
+	std::cout << mrYesCopyConstructor << std::endl;
+	mrYesCopyConstructor.increment();
+	std::cout << mrYesCopyConstructor << std::endl;
+	std::cout << mrYes << std::endl;
+
+
+	/////
+	std::cout << std::endl << "==D==" << std::endl;
+	Bureaucrat mrYesCopyAssignment("Mr. YesCopyAssignment", 10);
+	mrYesCopyAssignment = mrYes;
+	mrYesCopyAssignment.increment();
+	std::cout << mrYesCopyAssignment << std::endl;
+	std::cout << mrYes << std::endl;
+
 	return 0;
 }
