@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/01 19:20:10 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/03 00:14:52 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/16 18:46:43 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -98,12 +98,17 @@ void ScalarConverter::printInt(double *number) {
 void ScalarConverter::printFloat(double *number, int precision)
 {
 	std::string value = "";
-	if ((number == NULL
-		 || *number < std::numeric_limits<float>::lowest()
-		 || *number > std::numeric_limits<float>::max())
-		&& !isNanOrInf(number))
+	if (number == NULL)
 	{
 		value = "Impossible";
+	}
+	else if (*number < -std::numeric_limits<float>::max())
+	{
+		value = "-inf.0f";
+	}
+	else if (*number > std::numeric_limits<float>::max())
+	{
+		value = "inf.0f";
 	}
 	else
 	{
