@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/05/08 15:47:00 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/01 17:12:21 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/16 17:20:03 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -54,7 +54,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 
 	if ((std::rand() % 2) == 0) {
 		std::cout << getTarget()
-				  << " has been robotomized successfull"
+				  << " has been robotomized successfully"
 				  << std::endl;
 	} else {
 		std::cout
