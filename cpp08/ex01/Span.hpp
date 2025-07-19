@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/09 23:03:07 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/10 00:54:42 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/19 19:01:32 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -71,7 +71,7 @@ public:
 		SpanException();
 		SpanException(std::string msg);
 		virtual const char *what() const throw();
-		virtual ~SpanException() _NOEXCEPT;
+		virtual ~SpanException() throw();
 	};
 };
 

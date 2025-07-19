@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/09 23:15:59 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/10 00:16:07 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/19 19:01:10 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -52,10 +52,10 @@ unsigned int Span::shortestSpan()
 	if (this->numbers.size() < 2)
 		throw SpanException(
 				"Not Enough elements on span to retrieve shortestSpan");
-	std::multiset<int>::const_iterator forward = ++this->numbers.cbegin();
-	std::multiset<int>::const_iterator backward = this->numbers.cbegin();
+	std::multiset<int>::iterator forward = ++this->numbers.begin();
+	std::multiset<int>::iterator backward = this->numbers.begin();
 	int minSpan = abs(*forward - *backward);
-	for (; forward != this->numbers.cend(); forward++, backward++)
+	for (; forward != this->numbers.end(); forward++, backward++)
 	{
 		int currentSpan = abs(*forward - *backward);
 		if (currentSpan < minSpan)
@@ -71,7 +71,7 @@ unsigned int Span::longestSpan()
 	if (this->numbers.size() < 2)
 		throw SpanException(
 				"Not Enough elements on span to retrieve longestSpan");
-	return *this->numbers.crbegin() - *this->numbers.cbegin();
+	return *this->numbers.rbegin() - *this->numbers.begin();
 }
 
 
@@ -85,8 +85,8 @@ Span::SpanException::SpanException() : msg("Invalid Span operation")
 
 }
 
-Span::SpanException::~SpanException() _NOEXCEPT
-{		
+Span::SpanException::~SpanException() throw()
+{
 }
 
 const char * Span::SpanException::what() const throw()
