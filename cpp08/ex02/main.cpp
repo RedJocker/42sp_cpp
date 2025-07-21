@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/12 16:10:59 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/21 18:17:59 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -14,6 +14,7 @@
 #include "MutantStack.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
 
 void print_element(int element) {
 		std::cout << element << std::endl;
@@ -60,10 +61,10 @@ int main(void)
 
 	MutantStack<int> stackCopy(mstack);
 
-	std::for_each(stackCopy.cbegin(), stackCopy.cend(), ::print_element);
+	std::for_each(stackCopy.begin(), stackCopy.end(), ::print_element);
 	std::cout << "" << std::endl;
 
-	std::for_each(stackCopy.crbegin(), stackCopy.crend(), ::print_element);
+	std::for_each(stackCopy.rbegin(), stackCopy.rend(), ::print_element);
 	std::cout << "" << std::endl;
 
 	std::for_each(stackCopy.rbegin(), stackCopy.rend(), ::print_element);

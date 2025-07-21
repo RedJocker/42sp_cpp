@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/12 01:35:28 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/12 16:11:17 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/21 18:17:08 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -54,21 +54,6 @@ typename MutantStack<StackElement>::iterator MutantStack<StackElement>::end()
 }
 
 template <typename StackElement>
-typename MutantStack<StackElement>::const_iterator
-	MutantStack<StackElement>::cbegin()
-{
-	return this->c.cbegin();
-}
-
-template <typename StackElement>
-typename MutantStack<StackElement>::const_iterator
-	MutantStack<StackElement>::cend()
-{
-	return this->c.cend();
-}
-
-
-template <typename StackElement>
 typename MutantStack<StackElement>::reverse_iterator
 	MutantStack<StackElement>::rbegin()
 {
@@ -80,19 +65,4 @@ typename MutantStack<StackElement>::reverse_iterator
 	MutantStack<StackElement>::rend()
 {
 	return this->c.rend();
-}
-
-
-template <typename StackElement>
-typename MutantStack<StackElement>::const_reverse_iterator
-	MutantStack<StackElement>::crbegin()
-{
-	return this->c.crbegin();
-}
-
-template <typename StackElement>
-typename MutantStack<StackElement>::const_reverse_iterator
-	MutantStack<StackElement>::crend()
-{
-	return this->c.crend();
 }
