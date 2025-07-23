@@ -6,13 +6,14 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/07/19 18:10:32 by maurodri         ###   ########.fr        #
+#    Updated: 2025/07/22 21:27:28 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 MANDATORY_DIR := ./
 
-FILES := main.cpp 
+FILES := main.cpp \
+	RPN.cpp
 
 
 OBJ_DIR := ./obj/

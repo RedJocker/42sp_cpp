@@ -6,11 +6,11 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/19 18:13:19 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/22 22:08:49 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-
+#include "RPN.hpp"
 #include <iostream>
 
 int main(int argc, char *argv[])
@@ -25,5 +25,9 @@ int main(int argc, char *argv[])
 		return 11;
 	}
 
-	return 0;
+	RPN calculator;
+	std::pair<int, std::string> result = calculator.calculate(argv + 1);
+	std::cout << result.second << std::endl;
+
+	return result.first;
 }
