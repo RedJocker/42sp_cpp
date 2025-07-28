@@ -88,3 +88,8 @@ command=("$program" "40" "50" "20" "30" "10"  )
 expected="10 20 30 40 50"
 expected_status='0'
 run_test_command
+
+command=("$program" "10" "40" "30" "60" "20" "90" "70" "80" "50" )
+expected="10 20 30 40 50"
+expected_status='0'
+run_test_command
