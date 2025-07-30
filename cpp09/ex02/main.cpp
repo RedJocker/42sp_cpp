@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/30 02:07:16 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/30 20:54:07 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -46,13 +46,13 @@ std::pair<bool, Container> createListFromArgs(char **args)
 	return std::make_pair(true, container);
 }
 
-template<typename ContainerStreamable>
-void printContainer(ContainerStreamable container) {
-	for (typename ContainerStreamable::iterator i = container.begin();
-		 i != container.end();
+template<typename Iterator>
+void printContainer(Iterator begin, Iterator end) {
+	for (Iterator i = begin;
+		 i != end;
 	) {
 		std::cout << *i;
-		if (++i != container.end())
+		if (++i != end)
 			std::cout << " ";
 	}
 }
@@ -65,12 +65,12 @@ void swapGroup(
 {
 	typedef RandomAccessIterator It;
 
-	size_t halfGroupSize = groupSize / 2;
-	It beginA = leaderA - halfGroupSize;
-	It beginB = leaderB - halfGroupSize;
+	It beginA = leaderA - groupSize + 1;
+	It beginB = leaderB - groupSize + 1;
 	It endA = leaderA + 1;
 	It endB = leaderB + 1;
 
+	//std::cout << "swap: " << *leaderA << " " << *leaderB << " " << groupSize << std::endl;
 	for (It a = beginA, b = beginB;
 		 a < endA && b < endB;
 		 a++, b++)
@@ -103,24 +103,24 @@ void insertElement(
 	typedef RandomAccessIterator It;
 	It toInsert = begin + indexToInsert;
 
-	std::cout << "toInsert: " << *toInsert << std::endl;
-	std::cout << "begin: " << *begin << std::endl;
-	std::cout << "end: " << *end << std::endl;
-	std::cout << "groupSize: " << groupSize << std::endl;
-	std::cout << "indexFloor: " << indexFloor << std::endl;
-	std::cout << "indexCeiling: " << indexCeiling << std::endl;
-	std::cout << "indexToInsert: " << indexToInsert << std::endl;
+	// std::cout << "toInsert: " << *toInsert << std::endl;
+	// std::cout << "begin: " << *begin << std::endl;
+	// std::cout << "end: " << *end << std::endl;
+	// std::cout << "groupSize: " << groupSize << std::endl;
+	// std::cout << "indexFloor: " << indexFloor << std::endl;
+	// std::cout << "indexCeiling: " << indexCeiling << std::endl;
+	// std::cout << "indexToInsert: " << indexToInsert << std::endl;
 
 	size_t halfGroupSize = groupSize >> 1;
 	
 	long currentIndex = static_cast<long>(indexCeiling);
-	std::cout << "main chain: " << std::endl;
+	//std::cout << "main chain: " << std::endl;
 	
 	It currentMainChainIt = begin + currentIndex;
 	while (currentIndex >= 0)
 	{
 		if (currentMainChainIt < end) {
-			std::cout << "\t" << *currentMainChainIt << std::endl;
+			//		std::cout << "\t" << *currentMainChainIt << std::endl;
 			if (currentMainChainIt > toInsert && *toInsert > *currentMainChainIt)
 			{
 				swapGroup(toInsert, currentMainChainIt, halfGroupSize);
@@ -226,8 +226,12 @@ void sortGroup(
 		}
 	}
 
-	
+	//std::cout << "groupSize: " << groupSize << std::endl;
+	// printContainer(begin, end);
+	// std::cout << std::endl;
 	sortGroup(begin, end - rest, groupSize * 2);
+	// printContainer(begin, end);
+	// std::cout << std::endl;
 	mergeGroup(begin, end, groupSize);
 }
 
@@ -261,7 +265,7 @@ int main(int argc, char *argv[])
 		// std::cout << std::endl;
 		std::vector<int> vec = maybeVector.second;
 		mergeInsertionSort(vec.begin(), vec.end());
-		printContainer(vec);
+		printContainer(vec.begin(), vec.end());
 		std::cout << std::endl;
 	}
 
