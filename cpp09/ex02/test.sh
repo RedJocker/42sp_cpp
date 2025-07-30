@@ -90,6 +90,11 @@ expected_status='0'
 run_test_command
 
 command=("$program" "10" "40" "30" "60" "20" "90" "70" "80" "50" )
-expected="10 20 30 40 50"
+expected="10 20 30 40 50 60 70 80 90"
+expected_status='0'
+run_test_command
+
+command=("$program" "30" "10" "50" "60" "40" "80" "20" "90" "70" )
+expected="10 20 30 40 50 60 70 80 90"
 expected_status='0'
 run_test_command

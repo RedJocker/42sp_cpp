@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/28 00:28:11 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/30 02:07:16 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -15,6 +15,7 @@
 #include <vector>
 #include <deque>
 #include <list>
+#include <cmath>
 
 std::pair<bool, unsigned int> parseUInt(char *str)
 {
@@ -90,31 +91,54 @@ size_t bottomIndexAtGroupSize(size_t i, size_t groupSize)
 	return leaderIndexAtGroupSize(2 * i, groupSize >> 1);
 }
 
-template<typename RandomAccessIterator>
+template <typename RandomAccessIterator>
 void insertElement(
-	RandomAccessIterator toInsert,
+	size_t indexFloor,
+	size_t indexCeiling,
+	size_t indexToInsert,
 	RandomAccessIterator begin,
 	RandomAccessIterator end,
 	size_t groupSize)
 {
 	typedef RandomAccessIterator It;
-	(It) toInsert;
+	It toInsert = begin + indexToInsert;
 
 	std::cout << "toInsert: " << *toInsert << std::endl;
 	std::cout << "begin: " << *begin << std::endl;
 	std::cout << "end: " << *end << std::endl;
 	std::cout << "groupSize: " << groupSize << std::endl;
+	std::cout << "indexFloor: " << indexFloor << std::endl;
+	std::cout << "indexCeiling: " << indexCeiling << std::endl;
+	std::cout << "indexToInsert: " << indexToInsert << std::endl;
 
-	// size_t i = 0;
-	// for (It current = ;
-	// 	 current < end;
-	// 	 current = leaderIndexAtGroupSize(i++, groupSize))
-	// {
-	// 	if (*toInsert >  *current)
-	// 	{
-	// 		swapGroup(toInsert, current, groupSize);
-	// 	}
-	// }
+	size_t halfGroupSize = groupSize >> 1;
+	
+	long currentIndex = static_cast<long>(indexCeiling);
+	std::cout << "main chain: " << std::endl;
+	
+	It currentMainChainIt = begin + currentIndex;
+	while (currentIndex >= 0)
+	{
+		if (currentMainChainIt < end) {
+			std::cout << "\t" << *currentMainChainIt << std::endl;
+			if (currentMainChainIt > toInsert && *toInsert > *currentMainChainIt)
+			{
+				swapGroup(toInsert, currentMainChainIt, halfGroupSize);
+				return;
+			} else if (currentMainChainIt < toInsert && *toInsert < *currentMainChainIt)
+			{
+				swapGroup(toInsert, currentMainChainIt, halfGroupSize);
+				toInsert = currentMainChainIt;
+			}
+		}
+		if (static_cast<long>(indexCeiling) == currentIndex) {
+			currentIndex -= static_cast<long>(halfGroupSize);
+		} else if (currentIndex > static_cast<long>(indexFloor))
+			currentIndex -= static_cast<long>(groupSize);
+		else
+			currentIndex -= static_cast<long>(halfGroupSize);
+		currentMainChainIt = begin + currentIndex;
+	}
 }
 
 size_t jacobsthalNumber(size_t n)
@@ -133,11 +157,13 @@ void mergeGroup(
 	size_t jacobIFloor = 2;
 	size_t jacobICeiling = 3;
 
-	size_t jFloor = jacobsthalNumber(jacobIFloor) - 1;
-	size_t jCeiling = jacobsthalNumber(jacobICeiling) - 1;
+	size_t jacobFloor = jacobsthalNumber(jacobIFloor);
+	size_t jacobCeiling = jacobsthalNumber(jacobICeiling) - 1;
 
-	It itFloor = begin + bottomIndexAtGroupSize(jFloor, groupSize);
-	It itCeiling = begin + bottomIndexAtGroupSize(jCeiling, groupSize);
+	size_t indexFloor = bottomIndexAtGroupSize(jacobFloor, groupSize);
+	size_t indexCeiling = bottomIndexAtGroupSize(jacobCeiling, groupSize);
+	It itFloor = begin + indexFloor;
+	It itCeiling = begin + indexCeiling;
  
 	while(true)
 	{
@@ -145,24 +171,34 @@ void mergeGroup(
 			return ;
 		else 
 		{
-			long currentJCeiling = jCeiling;
-			while (static_cast<long>(jFloor) < currentJCeiling)
+			long currentJacobCeiling = static_cast<long>(jacobCeiling);
+			long currentIndexCeiling = static_cast<long>(indexCeiling);
+			while (static_cast<long>(jacobFloor) <= currentJacobCeiling)
 			{
 				if (itCeiling < end) {
-					insertElement(itCeiling, begin, end, groupSize);
+					insertElement(indexFloor,
+					    indexCeiling,
+					    currentIndexCeiling,
+						begin,
+					    end,
+						groupSize
+					);
 				}
-				
-				currentJCeiling--; 
-				itCeiling = begin + bottomIndexAtGroupSize(
-					currentJCeiling, 
+
+				currentJacobCeiling--;
+				currentIndexCeiling = static_cast<long>(bottomIndexAtGroupSize(
+					currentJacobCeiling, 
 					groupSize
-				);
+				));
+				itCeiling = begin + currentIndexCeiling;
 			}
 		}
-		jFloor = jacobsthalNumber(++jacobIFloor) - 1;
-		jCeiling = jacobsthalNumber(++jacobICeiling) - 1;
-		itFloor = begin + bottomIndexAtGroupSize(jFloor, groupSize);
-		itCeiling = begin + bottomIndexAtGroupSize(jCeiling, groupSize);
+		jacobFloor = jacobsthalNumber(++jacobIFloor);
+		jacobCeiling = jacobsthalNumber(++jacobICeiling) - 1;
+		indexFloor = bottomIndexAtGroupSize(jacobFloor, groupSize);
+		indexCeiling = bottomIndexAtGroupSize(jacobCeiling, groupSize);
+		itFloor = begin + indexFloor;
+		itCeiling = begin + indexCeiling;
 	}
 }
 
