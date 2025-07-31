@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/30 20:54:07 by maurodri         ###   ########.fr       //
+//   Updated: 2025/07/30 23:44:19 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -102,41 +102,59 @@ void insertElement(
 {
 	typedef RandomAccessIterator It;
 	It toInsert = begin + indexToInsert;
-
-	// std::cout << "toInsert: " << *toInsert << std::endl;
+	
+	// std::cout << std::endl << "toInsert: " << *toInsert << std::endl;
 	// std::cout << "begin: " << *begin << std::endl;
 	// std::cout << "end: " << *end << std::endl;
 	// std::cout << "groupSize: " << groupSize << std::endl;
 	// std::cout << "indexFloor: " << indexFloor << std::endl;
-	// std::cout << "indexCeiling: " << indexCeiling << std::endl;
 	// std::cout << "indexToInsert: " << indexToInsert << std::endl;
+	// std::cout << "indexCeiling: " << indexCeiling << std::endl;
 
 	size_t halfGroupSize = groupSize >> 1;
-	
+		
+	if (begin + indexCeiling >= end)
+	{
+		size_t wholeSize = end - begin;
+		indexCeiling = wholeSize - 1;
+	}
+
+	// std::cout << "indexCeiling: " << indexCeiling << std::endl;
+	// printContainer(begin, end);
+	// std::cout << std::endl;
+	// std::cout << "main chain: " << std::endl;
+
 	long currentIndex = static_cast<long>(indexCeiling);
-	//std::cout << "main chain: " << std::endl;
-	
 	It currentMainChainIt = begin + currentIndex;
 	while (currentIndex >= 0)
 	{
 		if (currentMainChainIt < end) {
-			//		std::cout << "\t" << *currentMainChainIt << std::endl;
+			//std::cout << "\t" << *currentMainChainIt << std::endl;
 			if (currentMainChainIt > toInsert && *toInsert > *currentMainChainIt)
 			{
+				//printContainer(begin, end);
+				//std::cout << std::endl;
 				swapGroup(toInsert, currentMainChainIt, halfGroupSize);
-				return;
+				//printContainer(begin, end);
+				//std::cout << std::endl;
+				//std::cout <<  "toInsert: " << *toInsert << std::endl;
 			} else if (currentMainChainIt < toInsert && *toInsert < *currentMainChainIt)
 			{
 				swapGroup(toInsert, currentMainChainIt, halfGroupSize);
 				toInsert = currentMainChainIt;
 			}
 		}
-		if (static_cast<long>(indexCeiling) == currentIndex) {
+		if (currentIndex >= static_cast<long>(indexToInsert)) {
+			//std::cout <<  "halfStep: " << std::endl;
 			currentIndex -= static_cast<long>(halfGroupSize);
-		} else if (currentIndex > static_cast<long>(indexFloor))
+		} else if (currentIndex > static_cast<long>(indexFloor)) {
+			//std::cout <<  "wholeStep: " << std::endl;
 			currentIndex -= static_cast<long>(groupSize);
-		else
+		}
+		else {
+			//std::cout <<  "halfSTep: " << std::endl;
 			currentIndex -= static_cast<long>(halfGroupSize);
+		}
 		currentMainChainIt = begin + currentIndex;
 	}
 }
@@ -227,12 +245,12 @@ void sortGroup(
 	}
 
 	//std::cout << "groupSize: " << groupSize << std::endl;
-	// printContainer(begin, end);
-	// std::cout << std::endl;
+	//printContainer(begin, end);
+	//std::cout << std::endl;
 	sortGroup(begin, end - rest, groupSize * 2);
-	// printContainer(begin, end);
-	// std::cout << std::endl;
 	mergeGroup(begin, end, groupSize);
+	//printContainer(begin, end);
+	//std::cout << std::endl;
 }
 
 template<typename RandomAccessIterator>
