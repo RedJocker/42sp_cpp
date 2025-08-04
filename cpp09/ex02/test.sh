@@ -188,16 +188,16 @@ run_test_command
 
 
 
-# for size in {3000..3001}; do # testSize
-#     for run in {1..1000}; do  # how many tests with that size
-# 	numbers=();
-# 	for ((i=0; i < size; i++)); do
-#             numbers+=($((RANDOM % 100)) )
-# 	done
-#         expected=$(printf "%s\n" "${numbers[@]}" | sort -n | xargs)
+for size in {3000..3001}; do # testSize
+    for run in {1..1000}; do  # how many tests with that size
+	numbers=();
+	for ((i=0; i < size; i++)); do
+            numbers+=($((RANDOM % 100)) )
+	done
+        expected=$(printf "%s\n" "${numbers[@]}" | sort -n | xargs)
         
-#         command=("$program" "${numbers[@]}")
-#         expected_status='0'
-#         run_test_command
-#     done
-# done
+        command=("$program" "${numbers[@]}")
+        expected_status='0'
+        run_test_command
+    done
+done
