@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/02/03 15:58:31 by maurodri          #+#    #+#             //
-//   Updated: 2025/08/04 17:31:23 by maurodri         ###   ########.fr       //
+//   Updated: 2025/08/04 17:37:04 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -37,12 +37,13 @@ int main(int argc, char *argv[])
 			std::cerr << "Error" << std::endl;
 			return 22;
 		}
-		// else
-		// 	printContainer(maybeVector.second);
-		// std::cout << std::endl;
 		std::vector<int> vec = maybeVector.second;
+		std::cout << "Before:  ";
+		organizer.printContainer(vec.begin(), vec.end());
+		std::cout << std::endl;
 		clock_t sortTime = organizer.mergeInsertionSort(vec.begin(), vec.end());
 		(void) sortTime;
+		std::cout << "After:   ";
 		organizer.printContainer(vec.begin(), vec.end());
 		std::cout << std::endl;
 	}
