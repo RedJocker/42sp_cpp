@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/08/04 16:48:14 by maurodri          #+#    #+#             //
-//   Updated: 2025/08/04 17:29:58 by maurodri         ###   ########.fr       //
+//   Updated: 2025/08/04 18:02:33 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -61,7 +61,7 @@ public:
 	std::pair<bool, Container> createListFromArgs(char **args);
 
 	template<typename RandomAccessIterator>
-	std::clock_t mergeInsertionSort(RandomAccessIterator begin, RandomAccessIterator end);
+	double mergeInsertionSort(RandomAccessIterator begin, RandomAccessIterator end);
 
 	template<typename Iterator>
 	void printContainer(Iterator begin, Iterator end);

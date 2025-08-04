@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/08/04 17:05:28 by maurodri          #+#    #+#             //
-//   Updated: 2025/08/04 17:30:08 by maurodri         ###   ########.fr       //
+//   Updated: 2025/08/04 18:08:18 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -218,10 +218,10 @@ void PmergeMe::sortGroup(
 }
 
 template<typename RandomAccessIterator>
-std::clock_t PmergeMe::mergeInsertionSort(RandomAccessIterator begin, RandomAccessIterator end)
+double PmergeMe::mergeInsertionSort(RandomAccessIterator begin, RandomAccessIterator end)
 {
 	std::clock_t clocks_start = std::clock();
 	sortGroup(begin, end, 2);
 	std::clock_t clocks_end = std::clock();
-	return clocks_end - clocks_start;
+	return static_cast<double>(clocks_end - clocks_start) / CLOCKS_PER_SEC * 1000000;
 }
