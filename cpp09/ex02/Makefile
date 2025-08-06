@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 17:53:38 by maurodri          #+#    #+#              #
-#    Updated: 2025/08/04 17:07:47 by maurodri         ###   ########.fr        #
+#    Updated: 2025/08/05 19:05:14 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -33,7 +33,7 @@ DEP_FILES := $(patsubst %.o, %.d, $(OBJS))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	-etags $$(find . -name '*.[tch]pp')
+	-etags --language-force=c++ $$(find . -name '*.[tch]pp')
 	$(CC) $(CFLAGS) $^ $(INCLUDES) -o $@
 
 $(OBJS): $(OBJ_DIR)%.o : %.cpp | $(OBJ_DIR)

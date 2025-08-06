@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/08/04 16:48:14 by maurodri          #+#    #+#             //
-//   Updated: 2025/08/04 18:02:33 by maurodri         ###   ########.fr       //
+//   Updated: 2025/08/05 22:37:45 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -21,6 +21,38 @@ class PmergeMe
 {
 	std::pair<bool, unsigned int> parseUInt(char *str);
 
+	struct MainChainInfo
+	{
+		size_t indexCeiling;
+		size_t indexToInsert;
+		size_t indexFloor;
+		size_t groupSize;
+		size_t halfGroupSize;
+		size_t topSize;
+		size_t middleSize;
+		size_t bottomSize;
+		size_t totalSize;
+		size_t toInsertMainChainIndex;
+
+		size_t index(size_t i);
+		size_t indexWithCurrentAsLast(size_t i);
+	};
+	
+	MainChainInfo mainChainInfo(
+		size_t indexCeiling,
+		size_t indexToInsert,
+		size_t indexFloor,
+		size_t groupSize,
+		size_t halfGroupSize);
+
+	template <typename RandomAccessIterator>
+	size_t searchInsertIndex(
+		MainChainInfo &mainChainInfo,
+ 		size_t bottom,
+		size_t top,
+		RandomAccessIterator begin,
+		RandomAccessIterator toInsert);
+	
 	template<typename RandomAccessIterator>
 	void swapGroup(
 		RandomAccessIterator leaderA,
@@ -40,6 +72,15 @@ class PmergeMe
 		RandomAccessIterator end,
 		size_t groupSize);
 
+	template <typename RandomAccessIterator>
+	void insertElementOld(
+		size_t indexFloor,
+		size_t indexCeiling,
+		size_t indexToInsert,
+		RandomAccessIterator begin,
+		RandomAccessIterator end,
+		size_t groupSize);
+
 	size_t jacobsthalNumber(size_t n);
 
 	template<typename RandomAccessIterator>
@@ -49,7 +90,7 @@ class PmergeMe
 	template<typename RandomAccessIterator>
 	void sortGroup(
 		RandomAccessIterator begin, RandomAccessIterator end, size_t groupSize);
-
+	
 public:
 
 	PmergeMe();
