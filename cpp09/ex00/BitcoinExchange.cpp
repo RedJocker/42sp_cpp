@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/07/14 01:41:32 by maurodri          #+#    #+#             //
-//   Updated: 2025/07/21 23:22:53 by maurodri         ###   ########.fr       //
+//   Updated: 2025/08/07 20:27:14 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -229,7 +229,7 @@ std::pair<int, std::string> BitcoinExchange::report(
 			std::find_if(b, e, GreaterThan(timestamp));
 
 		// expected 11 == size time_format with 4 digit years \0 term
-		char dateStr[20];
+		char dateStr[30];
 		strftime(dateStr, sizeof(dateStr), "%Y-%m-%d", &tm);
 
 		if (currentExchangeRate == b) {

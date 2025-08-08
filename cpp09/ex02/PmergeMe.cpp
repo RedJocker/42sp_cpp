@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/08/05 20:39:45 by maurodri          #+#    #+#             //
-//   Updated: 2025/08/05 23:38:06 by maurodri         ###   ########.fr       //
+//   Updated: 2025/08/07 20:59:10 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -86,12 +86,11 @@ PmergeMe::MainChainInfo PmergeMe::mainChainInfo(
 	size_t groupSize,
 	size_t halfGroupSize
 ) {
-	size_t topMainChainSize = indexCeiling >= indexToInsert ? 1 + ((indexCeiling - indexToInsert) / halfGroupSize) : 1;
+	size_t topMainChainSize = indexCeiling >= indexToInsert
+		? 1 + ((indexCeiling - indexToInsert) / halfGroupSize)
+		: 1;
 	size_t middleMainChainSize = (indexToInsert - indexFloor) / groupSize;
 	size_t bottomMainChainSize = indexFloor / halfGroupSize; 
-	//std::cout << "top main chain size: " << topMainChainSize << std::endl;
-	//std::cout << "middle main chain size: " << middleMainChainSize << std::endl;
-	//std::cout << "bottom main chain size: " << bottomMainChainSize << std::endl;
 	size_t mainChainSizee = topMainChainSize + middleMainChainSize + bottomMainChainSize;
 
 	return (PmergeMe::MainChainInfo) {

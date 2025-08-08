@@ -36,14 +36,14 @@ run_test_command() {
         echo "expected:"
         echo "$expected"
         echo ""
-        #exit 42;
+        exit 42;
     elif (( status != expected_status )); then
         echo "[BAD] test: ${command[*]}";
         echo "actual status: $status"
         echo "expected status: $expected_status"
-        #exit $status
+        exit $status
     else
-        echo "[GOOD] test: ${command[*]}";
+         echo "[GOOD] test: ${command[*]}";	
     fi
 }
 
