@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/08/04 17:05:28 by maurodri          #+#    #+#             //
-//   Updated: 2025/08/07 21:07:48 by maurodri         ###   ########.fr       //
+//   Updated: 2025/08/09 18:34:10 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -63,13 +63,16 @@ void PmergeMe::swapGroup(
 template <typename RandomAccessIterator>
 size_t PmergeMe::searchInsertIndex(
 	MainChainInfo &mainChainInfo,
- 	size_t bottom,
-	size_t top,
+ 	long long bottom,
+	long long top,
 	RandomAccessIterator begin,
 	RandomAccessIterator toInsert
 ) {
+	top = top < 0 ? 0 : top;
+	//std::cout << "bottom: " << bottom << " top: " << top << std::endl;
 	if (bottom >= top)
 	{
+		//	std::cout << "base" << std::endl;
 		if (*toInsert > *(begin + mainChainInfo.indexWithCurrentAsLast(top)))
 			return top + 1;
 		else
@@ -80,7 +83,8 @@ size_t PmergeMe::searchInsertIndex(
 	RandomAccessIterator middleIt =
 		begin + mainChainInfo.indexWithCurrentAsLast(middle);
 
-	if (*toInsert > *middleIt)
+	//std::cout << "middle: " << middle << " *middleIt: " << *middleIt << std::endl;
+	if (*toInsert >= *middleIt)
 		return searchInsertIndex(mainChainInfo, middle + 1, top, begin, toInsert);
 	else
 		return searchInsertIndex(mainChainInfo, bottom, middle - 1, begin, toInsert);
@@ -99,38 +103,78 @@ void PmergeMe::insertElement(
 	It toInsert = begin + indexToInsert;
 	size_t halfGroupSize = groupSize >> 1;
 
+	// std::cout << std::endl << "toInsert: " << *toInsert << std::endl;
+	// std::cout << "begin: " << *begin << std::endl;
+	// std::cout << "end: " << *end << std::endl;
+	// std::cout << "groupSize: " << groupSize << std::endl;
+	// std::cout << "indexFloor: " << indexFloor << std::endl;
+	// std::cout << "indexToInsert: " << indexToInsert << std::endl;
+	// std::cout << "indexCeiling: " << indexCeiling << std::endl;
+	
 	if (begin + indexCeiling >= end)
 	{
 		size_t wholeSize = end - begin;
 		indexCeiling = wholeSize - 1;
 	}
 
+	// std::cout << "indexCeiling: " << indexCeiling << std::endl;
+	// printContainer(begin, end);
+	// std::cout << std::endl;
+
 	PmergeMe::MainChainInfo mainChain =
 		mainChainInfo(indexCeiling, indexToInsert, indexFloor, groupSize, halfGroupSize);
-	
-	size_t toSwapMainChainIndex =
-		searchInsertIndex(mainChain, 0, mainChain.totalSize - 2, begin, toInsert);
 
+	// std::cout << "main chain size: " << mainChain.totalSize << std::endl;
+	// size_t i = 0;
+	// for (; i < mainChain.bottomSize; i++)
+	// {
+	// 	size_t idx = mainChain.index(i);
+	// 		std::cout << "i: " << i << " : " <<  idx << " : " << *(begin + idx) << std::endl;
+	// }
+	// for (; i < mainChain.bottomSize + mainChain.middleSize; i++)
+	// {
+	// 	size_t idx = mainChain.index(i);
+	// 		std::cout << "i: " << i << " : " <<  idx << " : " << *(begin + idx) << std::endl;
+	// }
+	// for (; i < mainChain.bottomSize + mainChain.middleSize + mainChain.topSize; i++)
+	// {
+	// 	size_t idx = mainChain.index(i);
+	// 		std::cout << "i: " << i << " : " <<  idx << " : " << *(begin + idx) << std::endl;
+	// }
+	
+	size_t toSwapMainChainIndex = searchInsertIndex(
+			mainChain,
+			0,
+			static_cast<long long>(mainChain.totalSize - 2),
+			begin,
+			toInsert
+		);
+
+	// std::cout << "toSwapMainChainIndex: " << toSwapMainChainIndex << std::endl;
 	if (toSwapMainChainIndex == mainChain.totalSize - 1)
 		return;
 	size_t indexToSwap = mainChain.indexWithCurrentAsLast(toSwapMainChainIndex);
 	if (indexToSwap > indexToInsert) {
+		//std::cout << "swap to right" << std::endl;
 		for (size_t i = mainChain.toInsertMainChainIndex; i < toSwapMainChainIndex; i++)
 		{
 			size_t current = mainChain.index(i);
 			size_t next = mainChain.index(i + 1);
 			It currentIt = begin + current;
 			It nextIt = begin + next;
+			//std::cout << "swaping " << *currentIt << " " << *nextIt << std::endl;
 			swapGroup(currentIt, nextIt, halfGroupSize);
 		}
 	}
 	else {
+		//std::cout << "swap to left" << std::endl;
 		for (size_t i = mainChain.toInsertMainChainIndex; i > toSwapMainChainIndex; i--)
 		{
 			size_t current = mainChain.index(i);
 			size_t previous = mainChain.index(i - 1);
 			It currentIt = begin + current;
 			It previousIt = begin + previous;
+			//std::cout << "swaping " << *currentIt << " " << *previousIt << std::endl;
 			swapGroup(currentIt, previousIt, halfGroupSize);
 		}	
 	}
@@ -209,8 +253,13 @@ void PmergeMe::sortGroup(
 		if (*back > *front)
 			swapGroup(back, front, halfGroupSize); 
 	}
+	// std::cout << "groupSize: " << groupSize << std::endl;
+	// printContainer(begin, end);
+	// std::cout << std::endl;
 	sortGroup(begin, end - rest, groupSize * 2);
 	mergeGroup(begin, end, groupSize);
+	// printContainer(begin, end);
+	// std::cout << std::endl;
 }
 
 template<typename RandomAccessIterator>

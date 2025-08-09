@@ -6,7 +6,7 @@
 //   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2025/08/04 16:48:14 by maurodri          #+#    #+#             //
-//   Updated: 2025/08/05 22:37:45 by maurodri         ###   ########.fr       //
+//   Updated: 2025/08/09 17:39:06 by maurodri         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -48,8 +48,8 @@ class PmergeMe
 	template <typename RandomAccessIterator>
 	size_t searchInsertIndex(
 		MainChainInfo &mainChainInfo,
- 		size_t bottom,
-		size_t top,
+ 		long long bottom,
+		long long top,
 		RandomAccessIterator begin,
 		RandomAccessIterator toInsert);
 	
